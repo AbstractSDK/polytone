@@ -24,7 +24,7 @@ for d in contracts/main/*/ ; do
     cargo add cw-orch --optional --git https://github.com/AbstractSDK/cw-orchestrator --branch feature/starship
 
     ## Then we add a new feature to the package 
-    ## This is a fix because we can't rreally do that via the CLI 
+    ## This is a fix because we can't really do that via the CLI 
     ## TODO: (can we do it via cargo cli ?, chat gpt says no)
     add_feature_cargo_toml
 

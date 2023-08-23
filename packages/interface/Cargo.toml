@@ -1,0 +1,21 @@
+[package]
+name = "interface"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow.workspace = true
+cw-orch = { git = "https://github.com/AbstractSDK/cw-orchestrator", branch = "feature/starship", version = "0.15.0", features=["interchain","starship"] }
+ibc-relayer-types = "0.25.0"
+polytone-note = { version = "1.0.0", path = "../../contracts/main/note", features=["interface"] }
+polytone-proxy = { version = "1.0.0", path = "../../contracts/main/proxy", features=["interface"] }
+polytone-voice = { version = "1.0.0", path = "../../contracts/main/voice", features=["interface"] }
+
+[dev-dependencies]
+anyhow.workspace = true
+env_logger = "0.10.0"
