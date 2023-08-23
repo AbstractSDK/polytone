@@ -1,5 +1,5 @@
 [package]
-name = "cw_orch_polytone"
+name = "cw-orch-polytone"
 edition.workspace = true
 license.workspace = true
 repository.workspace = true

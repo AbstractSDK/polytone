@@ -788,6 +788,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "cw-orch-polytone"
+version = "1.0.0"
+dependencies = [
+ "anyhow",
+ "cw-orch",
+ "env_logger",
+ "ibc-relayer-types",
+ "polytone-note",
+ "polytone-proxy",
+ "polytone-voice",
+]
+
+[[package]]
 name = "cw-orch-starship"
 version = "0.15.0"
 source = "git+https://github.com/AbstractSDK/cw-orchestrator?branch=feature/starship#4cfaf1a814c165074a70dc111ad6cfc98234c9a4"
@@ -844,19 +857,6 @@ dependencies = [
  "schemars",
  "serde",
  "thiserror",
-]
-
-[[package]]
-name = "cw_orch_polytone"
-version = "1.0.0"
-dependencies = [
- "anyhow",
- "cw-orch",
- "env_logger",
- "ibc-relayer-types",
- "polytone-note",
- "polytone-proxy",
- "polytone-voice",
 ]
 
 [[package]]
