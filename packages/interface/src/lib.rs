@@ -1,7 +1,8 @@
-pub mod interface;
-pub mod ibc_deploy;
 pub mod deploy;
+pub mod interface;
 
 pub use interface::Polytone;
 pub use interface::PolytoneAccount;
-pub use ibc_deploy::deploy;
+
+#[cfg(test)]
+pub mod tests;

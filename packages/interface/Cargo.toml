@@ -10,7 +10,10 @@ version.workspace = true
 
 [dependencies]
 anyhow.workspace = true
-cw-orch = { git = "https://github.com/AbstractSDK/cw-orchestrator", branch = "feature/starship", version = "0.15.0", features=["interchain","starship"] }
+cw-orch = { version="0.16.0", features=["daemon"] }
+
+cw-orch-interchain-core = { git="https://github.com/AbstractSDK/cw-orch-interchain" }
+
 ibc-relayer-types = "0.25.0"
 polytone-note = { version = "1.0.0", path = "../../contracts/main/note", features=["interface"] }
 polytone-proxy = { version = "1.0.0", path = "../../contracts/main/proxy", features=["interface"] }

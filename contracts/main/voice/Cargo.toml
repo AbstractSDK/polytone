@@ -34,7 +34,7 @@ rpath            = false
 [dependencies]
 cosmwasm-schema = { workspace = true }
 cosmwasm-std    = { workspace = true, features = ["cosmwasm_1_2"] }
-cw-orch = { git = "https://github.com/AbstractSDK/cw-orchestrator", branch = "feature/starship", version = "0.15.0", optional = true }
+cw-orch = { version="0.16.0", optional=true }
 cw-storage-plus = { workspace = true }
 cw-utils        = { workspace = true }
 cw2             = { workspace = true }

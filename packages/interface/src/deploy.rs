@@ -1,6 +1,9 @@
 use std::path::PathBuf;
 
-use cw_orch::{deploy::Deploy, prelude::{CwEnv, CwOrchUpload, CwOrchError, CwOrchInstantiate, ContractInstance}};
+use cw_orch::{
+    deploy::Deploy,
+    prelude::{ContractInstance, CwEnv, CwOrchError, CwOrchInstantiate, CwOrchUpload},
+};
 use polytone_note::contract::PolytoneNote;
 use polytone_proxy::contract::PolytoneProxy;
 use polytone_voice::contract::PolytoneVoice;
@@ -13,13 +16,12 @@ pub const POLYTONE_PROXY: &str = "polytone:proxy";
 
 pub const MAX_BLOCK_GAS: u64 = 100_000_000;
 
-impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain>{
+impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
     type Error = CwOrchError;
 
     type DeployData = Option<String>;
 
     fn store_on(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
-
         let polytone = Polytone::new(chain);
 
         polytone.note.upload()?;
@@ -54,7 +56,9 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain>{
         Ok(deployment)
     }
 
-    fn get_contracts_mut(&mut self) -> Vec<Box<&mut dyn cw_orch::prelude::ContractInstance<Chain>>> {
+    fn get_contracts_mut(
+        &mut self,
+    ) -> Vec<Box<&mut dyn cw_orch::prelude::ContractInstance<Chain>>> {
         vec![
             Box::new(&mut self.note),
             Box::new(&mut self.voice),
@@ -63,13 +67,11 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain>{
     }
 
     fn load_from(chain: Chain) -> Result<Self, Self::Error> {
-        
         let mut polytone = Self::new(chain);
         // We register all the contracts default state
         polytone.set_contracts_state();
         Ok(polytone)
     }
-
 
     fn deployed_state_file_path(&self) -> Option<String> {
         let crate_path = env!("CARGO_MANIFEST_DIR");
@@ -82,34 +84,34 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain>{
     }
 }
 
-impl<Chain: CwEnv> Polytone<Chain>{
-
+impl<Chain: CwEnv> Polytone<Chain> {
     pub fn new(chain: Chain) -> Self {
-
         let note = PolytoneNote::new(POLYTONE_NOTE, chain.clone());
         let voice = PolytoneVoice::new(POLYTONE_VOICE, chain.clone());
         let proxy = PolytoneProxy::new(POLYTONE_PROXY, chain.clone());
-        
-        Polytone{
-            note,
-            voice,
-            proxy
-        }
+
+        Polytone { note, voice, proxy }
     }
 }
 
 #[cfg(test)]
-pub mod test{
-    use cw_orch::{prelude::{DaemonBuilder, networks::{JUNO_1, UNI_6}, ContractInstance}, tokio::runtime::Runtime, deploy::Deploy};
+pub mod test {
     use anyhow::Result as AnyResult;
+    use cw_orch::{
+        deploy::Deploy,
+        prelude::{
+            networks::{JUNO_1, UNI_6},
+            ContractInstance, DaemonBuilder,
+        },
+        tokio::runtime::Runtime,
+    };
 
     use crate::Polytone;
 
     pub const TEST_MNEMONIC: &str = "raise enact foam mail memory pigeon balcony excuse wrist spread cabbage hour vivid satisfy defy nasty gesture total where slender auto cherry ball tornado";
 
     #[test]
-    pub fn mainnet_test() -> AnyResult<()>{
-
+    pub fn mainnet_test() -> AnyResult<()> {
         let rt = Runtime::new()?;
         let chain = DaemonBuilder::default()
             .chain(JUNO_1)
@@ -126,8 +128,7 @@ pub mod test{
     }
 
     #[test]
-    pub fn testnet_test() -> AnyResult<()>{
-
+    pub fn testnet_test() -> AnyResult<()> {
         let rt = Runtime::new()?;
         let chain = DaemonBuilder::default()
             .chain(UNI_6)
@@ -139,8 +140,7 @@ pub mod test{
         polytone.note.code_id()?;
         polytone.voice.code_id()?;
         polytone.proxy.code_id()?;
-        
-        Ok(())
 
+        Ok(())
     }
 }
