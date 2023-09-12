@@ -12,12 +12,15 @@ version.workspace = true
 anyhow.workspace = true
 cw-orch = { version="0.16.0", features=["daemon"] }
 
-cw-orch-interchain-core = { git="https://github.com/AbstractSDK/cw-orch-interchain" }
+cw-orch-interchain-core = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
+cw-orch-interchain = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
+cw-orch-starship = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
+cw-orch-mock-ibc = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
 
 ibc-relayer-types = "0.25.0"
-polytone-note = { version = "1.0.0", path = "../../contracts/main/note", features=["interface"] }
-polytone-proxy = { version = "1.0.0", path = "../../contracts/main/proxy", features=["interface"] }
-polytone-voice = { version = "1.0.0", path = "../../contracts/main/voice", features=["interface"] }
+polytone-note = { version = "1.0.0", path = "../../contracts/main/note" }
+polytone-proxy = { version = "1.0.0", path = "../../contracts/main/proxy" }
+polytone-voice = { version = "1.0.0", path = "../../contracts/main/voice" }
 
 [dev-dependencies]
 anyhow.workspace = true
