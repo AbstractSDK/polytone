@@ -1,6 +1,6 @@
 use crate::interface::PolytoneConnection;
 use crate::Polytone;
-use cw_orch::prelude::{Addr, Mock};
+use cw_orch::prelude::Addr;
 use cw_orch::{deploy::Deploy, prelude::CwOrchExecute, tokio::runtime::Runtime};
 use cw_orch_interchain_core::channel::IbcQueryHandler;
 use cw_orch_interchain_core::InterchainEnv;
@@ -53,18 +53,12 @@ fn polytone_deploy_starship() -> anyhow::Result<()> {
 
 #[test]
 fn polytone_deploy_mock() -> anyhow::Result<()> {
-    use cw_orch_interchain::channel_creator::ChannelCreator;
-    use cw_orch_starship::Starship;
     env_logger::init();
     let rt = Runtime::new()?;
 
     let sender = Addr::unchecked("sender");
 
     let interchain = MockInterchainEnv::new(vec![("juno-1", &sender), ("stargaze-1", &sender)]);
-
-    let starship = Starship::new(rt.handle().to_owned(), None)?;
-
-    let interchain = starship.interchain_env();
 
     ibc_deploy_helper(&rt, &interchain, "juno-1", "stargaze-1")?;
 
