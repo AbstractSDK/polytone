@@ -1,10 +1,13 @@
 use crate::interface::PolytoneConnection;
 use crate::Polytone;
-use cw_orch::prelude::Addr;
+use cw_orch::prelude::*;
 use cw_orch::{deploy::Deploy, prelude::CwOrchExecute, tokio::runtime::Runtime};
-use cw_orch_interchain_core::channel::IbcQueryHandler;
-use cw_orch_interchain_core::InterchainEnv;
-use cw_orch_mock_ibc::MockInterchainEnv;
+
+/// This allows env_logger to start properly for tests
+/// The logs will be printed only if the test fails !
+pub fn logger_test_init() {
+    let _ = env_logger::builder().is_test(true).try_init();
+}
 
 fn ibc_deploy_helper<Chain: IbcQueryHandler, IBC: InterchainEnv<Chain>>(
     runtime: &Runtime,
@@ -37,9 +40,7 @@ fn ibc_deploy_helper<Chain: IbcQueryHandler, IBC: InterchainEnv<Chain>>(
 
 #[test]
 fn polytone_deploy_starship() -> anyhow::Result<()> {
-    use cw_orch_interchain::channel_creator::ChannelCreator;
-    use cw_orch_starship::Starship;
-    env_logger::init();
+    logger_test_init();
     let rt = Runtime::new()?;
 
     let starship = Starship::new(rt.handle().to_owned(), None)?;
@@ -53,7 +54,7 @@ fn polytone_deploy_starship() -> anyhow::Result<()> {
 
 #[test]
 fn polytone_deploy_mock() -> anyhow::Result<()> {
-    env_logger::init();
+    logger_test_init();
     let rt = Runtime::new()?;
 
     let sender = Addr::unchecked("sender");

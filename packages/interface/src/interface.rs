@@ -1,9 +1,6 @@
 use crate::{PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cw_orch::prelude::*;
 
-use cw_orch_interchain_core::channel::IbcQueryHandler;
-use cw_orch_interchain_core::InterchainEnv;
-
 pub const POLYTONE_VERSION: &str = "polytone-1";
 
 // This file contains all interfaces to the polytone contracts

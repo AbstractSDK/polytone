@@ -10,12 +10,9 @@ version.workspace = true
 
 [dependencies]
 anyhow.workspace = true
-cw-orch = { version="0.16.0", features=["daemon"] }
 
-cw-orch-interchain-core = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
-cw-orch-interchain = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
-cw-orch-starship = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
-cw-orch-mock-ibc = { git="ssh://git@github.com/AbstractSDK/cw-orch-interchain.git" }
+#cw-orch = { version="0.16.0", features=["daemon"] }
+cw-orch = { package = "cw-orch-interchain", git = "ssh://git@github.com/AbstractSDK/cw-orch-interchain.git", features=["daemon"] }
 
 ibc-relayer-types = "0.25.0"
 polytone-note = { version = "1.0.0", path = "../../contracts/main/note" }
