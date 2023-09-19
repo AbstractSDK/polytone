@@ -5,7 +5,8 @@ version = 3
 [[package]]
 name = "abstract-cw-multi-test"
 version = "0.16.5"
-source = "git+ssh://git@github.com/AbstractSDK/cw-multi-test?branch=update/add-ibc-support#fce5913c869e3dd1c6f295c817e140f024d842f6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3ab7e91a403ad71dba847d6668a5de8cf128cdcd4d8259f60dcd5c7d5fb67f30"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -33,7 +34,7 @@ dependencies = [
 [[package]]
 name = "abstract-cw-multi-test"
 version = "0.16.5"
-source = "git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support#fce5913c869e3dd1c6f295c817e140f024d842f6"
+source = "git+ssh://git@github.com/AbstractSDK/cw-multi-test?branch=update/add-ibc-support#9db5db822cf622706021a09dd738f0340b57fe0a"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -86,9 +87,9 @@ dependencies = [
 
 [[package]]
 name = "aho-corasick"
-version = "1.0.5"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c378d78423fdad8089616f827526ee33c19f2fddbd5de1629152c9593ba4783"
+checksum = "0f2135563fb5c609d2b2b87c1e8ce7bc41b0b45430fa9661f457981503dd5bf0"
 dependencies = [
  "memchr",
 ]
@@ -176,7 +177,7 @@ checksum = "5fd55a5ba1179988837d24ab4c7cc8ed6efdeff578ede0416b4225a5fca35bd0"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -198,7 +199,7 @@ checksum = "16e62a023e7c117e27523144c5d2459f4397fcc3cab0085af8e2224f643a0193"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -209,7 +210,7 @@ checksum = "bc00ceb34980c03614e35a3a4e218276a0a824e911d07651cd0d858a51e8c0f0"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -423,9 +424,9 @@ dependencies = [
 
 [[package]]
 name = "bumpalo"
-version = "3.13.0"
+version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a3e2c3daef883ecc1b5d58c15adae93470a91d425f3532ba1695849656af3fc1"
+checksum = "7f30e7476521f6f8af1a1c4c0b8cc94f0bee37d91763d0ca2665f299b6cd8aec"
 
 [[package]]
 name = "byteorder"
@@ -459,9 +460,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chrono"
-version = "0.4.30"
+version = "0.4.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "defd4e7873dbddba6c7c91e199c7fcb946abc4a6a4ac3195400bcfb01b5de877"
+checksum = "7f2c685bad3eb3d45a01354cedb7d5faa66194d1d58ba6e267a8de788f79db38"
 dependencies = [
  "android-tzdata",
  "iana-time-zone",
@@ -473,9 +474,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "4.4.3"
+version = "4.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84ed82781cea27b43c9b106a979fe450a13a31aab0500595fb3fc06616de08e6"
+checksum = "b1d7b8d5ec32af0fadc644bf1fd509a688c2103b185644bb1e29d164e0703136"
 dependencies = [
  "clap_builder",
  "clap_derive",
@@ -483,9 +484,9 @@ dependencies = [
 
 [[package]]
 name = "clap_builder"
-version = "4.4.2"
+version = "4.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bb9faaa7c2ef94b2743a21f5a29e6f0010dff4caa69ac8e9d6cf8b6fa74da08"
+checksum = "5179bb514e4d7c2051749d8fcefa2ed6d06a9f4e6d69faf3805f5d80b8cf8d56"
 dependencies = [
  "anstream",
  "anstyle",
@@ -502,7 +503,7 @@ dependencies = [
  "heck",
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -745,7 +746,7 @@ checksum = "83fdaf97f4804dcebfa5862639bc9ce4121e82140bec2a987ac5140294865b5b"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -778,10 +779,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch"
-version = "0.16.2"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49a91e8990b59c257bf8553a0cfb2a0887f92a4682b81b4bd87a9df804c9d8b7"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "cosmrs",
  "cosmwasm-std",
@@ -803,7 +805,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-contract-derive"
 version = "0.15.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1b46bb61c32f521c65cf445a1ebaf92fb2d9ecc93fca69da9a21cb62712aabe"
 dependencies = [
  "convert_case",
  "log",
@@ -813,10 +816,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-core"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13258e0fad1fd79b01d794877810963e908dab0e0899e7a8a65ae7a9eba3217f"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "cosmwasm-std",
  "log",
@@ -828,10 +832,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-daemon"
-version = "0.16.2"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "88cb369dd6171ddb122aa2b62a537581afd9baf7b1ac5c327c8f84c6bc547dcb"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "base16",
  "base64 0.21.4",
@@ -863,6 +868,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sha256",
+ "shellexpand",
  "thiserror",
  "tokio",
  "tonic",
@@ -871,7 +877,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-fns-derive"
 version = "0.16.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c85b61bba610325745f1f41bc83fe32f4a202e9abdd848b04c88b42a025a5fbe"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -882,7 +889,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain"
 version = "0.16.2"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#59258a0692fbd185d3319cc3d60b983faa19f817"
 dependencies = [
  "cw-orch",
  "cw-orch-interchain-core",
@@ -894,7 +901,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-core"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#59258a0692fbd185d3319cc3d60b983faa19f817"
 dependencies = [
  "async-trait",
  "base64 0.21.4",
@@ -912,7 +919,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-daemon"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#59258a0692fbd185d3319cc3d60b983faa19f817"
 dependencies = [
  "anyhow",
  "async-recursion",
@@ -942,9 +949,9 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-mock"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#59258a0692fbd185d3319cc3d60b983faa19f817"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "async-trait",
  "cosmrs",
@@ -960,10 +967,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-mock"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60565b5001750003c6280e04d086a97cb02acec55c24d3b148b5d5749ff8e317"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "cosmwasm-std",
  "cw-orch-core",
  "cw-utils",
@@ -973,7 +981,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-networks"
 version = "0.16.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5a4ad254bda4d5af6631b7b2342941d720b31c2eaadb3c9f746b46940ee3f4f"
 dependencies = [
  "ibc-chain-registry",
  "serde",
@@ -994,8 +1003,8 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-starship"
-version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+version = "0.16.1"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#59258a0692fbd185d3319cc3d60b983faa19f817"
 dependencies = [
  "anyhow",
  "cosmwasm-std",
@@ -1015,8 +1024,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-traits"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a81a36ac603e49eecbaca0c76ed02d05bf793bd64ef303fb4bf2d8b0b152efd"
 dependencies = [
  "cw-orch-core",
  "prost",
@@ -1261,10 +1271,31 @@ dependencies = [
 ]
 
 [[package]]
-name = "dyn-clone"
-version = "1.0.13"
+name = "dirs"
+version = "5.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbfc4744c1b8f2a09adc0e55242f60b1af195d88596bd8700be74418c056c555"
+checksum = "44c45a9d03d6676652bcb5e724c7e988de1acad23a711b5217ab9cbecbec2225"
+dependencies = [
+ "dirs-sys",
+]
+
+[[package]]
+name = "dirs-sys"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "520f05a5cbd335fae5a99ff7a6ab8627577660ee5cfd6a94a6a929b52ff0321c"
+dependencies = [
+ "libc",
+ "option-ext",
+ "redox_users",
+ "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "dyn-clone"
+version = "1.0.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23d2f3407d9a573d666de4b5bdf10569d73ca9478087346697dcbae6244bfbcd"
 
 [[package]]
 name = "ecdsa"
@@ -1565,7 +1596,7 @@ checksum = "89ca545a94061b6365f2c7355b4b32bd20df3ff95f02da9329b34ccc3bd6ee72"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -1705,9 +1736,9 @@ checksum = "95505c38b4572b2d910cecb0281560f54b440a19336cbbcb27bf6ce6adc6f5a8"
 
 [[package]]
 name = "hermit-abi"
-version = "0.3.2"
+version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "443144c8cdadd93ebf52ddb4056d257f5b52c04d3c804e657d19eb73fc33668b"
+checksum = "d77f7ec81a6d05a3abb01ab6eb7590f6083d08449fe5a1c8b1e620283546ccb7"
 
 [[package]]
 name = "hex"
@@ -2410,7 +2441,7 @@ checksum = "a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -2430,6 +2461,12 @@ dependencies = [
  "pkg-config",
  "vcpkg",
 ]
+
+[[package]]
+name = "option-ext"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
 
 [[package]]
 name = "ordered-float"
@@ -2552,7 +2589,7 @@ dependencies = [
  "pest_meta",
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -2583,7 +2620,7 @@ checksum = "4359fd9c9171ec6e8c62926d6faaf553a8dc3f64e1507e76da7911b4f6a04405"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -2884,6 +2921,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "redox_users"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b033d837a7cf162d7993aded9304e30a83213c648b6e389db233191f891e5c2b"
+dependencies = [
+ "getrandom",
+ "redox_syscall 0.2.16",
+ "thiserror",
+]
+
+[[package]]
 name = "regex"
 version = "1.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3128,9 +3176,9 @@ dependencies = [
 
 [[package]]
 name = "schemars"
-version = "0.8.13"
+version = "0.8.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "763f8cd0d4c71ed8389c90cb8100cba87e763bd01a8e614d4f0af97bcd50a161"
+checksum = "1f7b0ce13155372a76ee2e1c5ffba1fe61ede73fbea5630d61eee6fac4929c0c"
 dependencies = [
  "dyn-clone",
  "schemars_derive",
@@ -3140,9 +3188,9 @@ dependencies = [
 
 [[package]]
 name = "schemars_derive"
-version = "0.8.13"
+version = "0.8.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec0f696e21e10fa546b7ffb1c9672c6de8fbc7a81acf59524386d8639bf12737"
+checksum = "e85e2a16b12bdb763244c69ab79363d71db2b4b918a2def53f80b02e0574b13c"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3283,7 +3331,7 @@ checksum = "4eca7ac642d82aa35b60049a6eccb4be6be75e599bd2e9adb5f875a737654af2"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -3316,7 +3364,7 @@ checksum = "8725e1dfadb3a50f7e5ce0b1a540466f6ed3fe7a0fca2ac2b8b831d31316bd00"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -3419,6 +3467,15 @@ name = "shell-words"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "24188a676b6ae68c3b2cb3a01be17fbf7240ce009799bb56d5b1409051e78fde"
+
+[[package]]
+name = "shellexpand"
+version = "3.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "da03fa3b94cc19e3ebfc88c4229c49d8f08cdbd1228870a45f0ffdf84988e14b"
+dependencies = [
+ "dirs",
+]
 
 [[package]]
 name = "signal-hook-registry"
@@ -3536,9 +3593,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.33"
+version = "2.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9caece70c63bfba29ec2fed841a09851b14a235c60010fa4de58089b6c025668"
+checksum = "7303ef2c05cd654186cb250d29049a24840ca25d2747c25c0381c8d9e2f582e8"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3678,9 +3735,9 @@ dependencies = [
 
 [[package]]
 name = "termcolor"
-version = "1.2.0"
+version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be55cf8942feac5c765c2c993422806843c9a9a45d4d5c407ad6dd2ea95eb9b6"
+checksum = "6093bad37da69aab9d123a8091e4be0aa4a03e4d601ec641c327398315f62b64"
 dependencies = [
  "winapi-util",
 ]
@@ -3702,7 +3759,7 @@ checksum = "49922ecae66cc8a249b77e68d1d0623c1b2c514f0060c27cdc68bd62a1219d35"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -3795,7 +3852,7 @@ checksum = "630bdcf245f78637c13ec01ffae6187cca34625e8c63150d424b59e55af2675e"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -3958,7 +4015,7 @@ checksum = "5f4f31f56159e98206da9efd823404b79b6ef3143b4a7ab76e67b1751b25a4ab"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
 
 [[package]]
@@ -4008,9 +4065,9 @@ dependencies = [
 
 [[package]]
 name = "typenum"
-version = "1.16.0"
+version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "497961ef93d974e23eb6f433eb5fe1b7930b659f06d12dec6fc44a8f554c0bba"
+checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
 
 [[package]]
 name = "ucd-trie"
@@ -4171,7 +4228,7 @@ dependencies = [
  "once_cell",
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
  "wasm-bindgen-shared",
 ]
 
@@ -4205,7 +4262,7 @@ checksum = "54681b18a46765f095758388f2d0cf16eb8d4169b639ab575a8f5693af210c7b"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
  "wasm-bindgen-backend",
  "wasm-bindgen-shared",
 ]
@@ -4469,5 +4526,5 @@ checksum = "ce36e65b0d2999d2aafac989fb249189a141aee1f53c612c1f37d72631959f69"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.33",
+ "syn 2.0.37",
 ]
