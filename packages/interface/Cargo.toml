@@ -12,7 +12,7 @@ version.workspace = true
 anyhow.workspace = true
 
 #cw-orch = { version="0.16.0", features=["daemon"] }
-cw-orch = { package = "cw-orch-interchain", git = "ssh://git@github.com/AbstractSDK/cw-orch-interchain.git", features=["daemon"] }
+cw-orch = { package = "cw-orch-interchain", registry = "abstract-money", features=["daemon"] }
 
 ibc-relayer-types = "0.25.0"
 polytone-note = { version = "1.0.0", path = "../../contracts/main/note" }

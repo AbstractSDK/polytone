@@ -5,7 +5,8 @@ version = 3
 [[package]]
 name = "abstract-cw-multi-test"
 version = "0.16.5"
-source = "git+ssh://git@github.com/AbstractSDK/cw-multi-test?branch=update/add-ibc-support#fce5913c869e3dd1c6f295c817e140f024d842f6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3ab7e91a403ad71dba847d6668a5de8cf128cdcd4d8259f60dcd5c7d5fb67f30"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -33,7 +34,7 @@ dependencies = [
 [[package]]
 name = "abstract-cw-multi-test"
 version = "0.16.5"
-source = "git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support#fce5913c869e3dd1c6f295c817e140f024d842f6"
+source = "git+ssh://git@github.com/AbstractSDK/cw-multi-test?branch=update/add-ibc-support#fce5913c869e3dd1c6f295c817e140f024d842f6"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -778,10 +779,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch"
-version = "0.16.2"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49a91e8990b59c257bf8553a0cfb2a0887f92a4682b81b4bd87a9df804c9d8b7"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "cosmrs",
  "cosmwasm-std",
@@ -803,7 +805,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-contract-derive"
 version = "0.15.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1b46bb61c32f521c65cf445a1ebaf92fb2d9ecc93fca69da9a21cb62712aabe"
 dependencies = [
  "convert_case",
  "log",
@@ -813,10 +816,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-core"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13258e0fad1fd79b01d794877810963e908dab0e0899e7a8a65ae7a9eba3217f"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "cosmwasm-std",
  "log",
@@ -828,10 +832,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-daemon"
-version = "0.16.2"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "220bb9e11fd5480071242b3c979bd04cc7e61a1496108a6463a165d133748005"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "base16",
  "base64 0.21.4",
@@ -871,7 +876,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-fns-derive"
 version = "0.16.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c85b61bba610325745f1f41bc83fe32f4a202e9abdd848b04c88b42a025a5fbe"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -882,7 +888,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain"
 version = "0.16.2"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "registry+ssh://git@ssh.shipyard.rs/abstract-money/crate-index.git"
+checksum = "d06749d6e4112238a92e061eeb0c03f1230837c2d14beb9785e323e824bdb1b1"
 dependencies = [
  "cw-orch",
  "cw-orch-interchain-core",
@@ -894,7 +901,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-core"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "registry+ssh://git@ssh.shipyard.rs/abstract-money/crate-index.git"
+checksum = "c2496ce4b61696d9972249a2d514f1b944a58a8fbdb0092e38df38ef5a9f8b61"
 dependencies = [
  "async-trait",
  "base64 0.21.4",
@@ -912,7 +920,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-daemon"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "registry+ssh://git@ssh.shipyard.rs/abstract-money/crate-index.git"
+checksum = "67109b25daf03f98d4ca61d9a0f92dc3d523d05297d02d9afc3259232980143e"
 dependencies = [
  "anyhow",
  "async-recursion",
@@ -942,9 +951,10 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-mock"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+source = "registry+ssh://git@ssh.shipyard.rs/abstract-money/crate-index.git"
+checksum = "a929d9a9b7a347b618b40aafc613c0c20205e8577814d323f1b30eead180ab99"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
  "async-trait",
  "cosmrs",
@@ -960,10 +970,11 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-mock"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60565b5001750003c6280e04d086a97cb02acec55c24d3b148b5d5749ff8e317"
 dependencies = [
- "abstract-cw-multi-test 0.16.5 (git+https://github.com/AbstractSDK/cw-multi-test/?branch=update/add-ibc-support)",
+ "abstract-cw-multi-test 0.16.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "cosmwasm-std",
  "cw-orch-core",
  "cw-utils",
@@ -973,7 +984,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-networks"
 version = "0.16.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5a4ad254bda4d5af6631b7b2342941d720b31c2eaadb3c9f746b46940ee3f4f"
 dependencies = [
  "ibc-chain-registry",
  "serde",
@@ -994,8 +1006,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-starship"
-version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git#2e7bcba01b55f9e6a7163a01348fee13e89711d3"
+version = "0.16.1"
+source = "registry+ssh://git@ssh.shipyard.rs/abstract-money/crate-index.git"
+checksum = "7f0e7006af360962e3f3746e273f26c536f0bca30b8564c869d4f9e8fe93b73d"
 dependencies = [
  "anyhow",
  "cosmwasm-std",
@@ -1015,8 +1028,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-traits"
-version = "0.16.1"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git#ad89c869f5a6cdc3b899a6da1c0bc0a513510ed2"
+version = "0.16.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a81a36ac603e49eecbaca0c76ed02d05bf793bd64ef303fb4bf2d8b0b152efd"
 dependencies = [
  "cw-orch-core",
  "prost",
