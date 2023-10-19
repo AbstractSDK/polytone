@@ -10,7 +10,6 @@ pub fn logger_test_init() {
 }
 
 fn ibc_deploy_helper<Chain: IbcQueryHandler, IBC: InterchainEnv<Chain>>(
-    runtime: &Runtime,
     interchain: &IBC,
     src_chain: &str,
     dst_chain: &str,
@@ -18,11 +17,7 @@ fn ibc_deploy_helper<Chain: IbcQueryHandler, IBC: InterchainEnv<Chain>>(
     let juno_polytone = Polytone::deploy_on(interchain.chain(src_chain)?.clone(), None)?;
     let stargaze_polytone = Polytone::deploy_on(interchain.chain(dst_chain)?.clone(), None)?;
 
-    let polytone = runtime.block_on(PolytoneConnection::connect(
-        interchain,
-        &juno_polytone,
-        &stargaze_polytone,
-    ))?;
+    let polytone = PolytoneConnection::connect(interchain, &juno_polytone, &stargaze_polytone)?;
 
     // Now we test an interaction through the interchain
 
@@ -34,7 +29,7 @@ fn ibc_deploy_helper<Chain: IbcQueryHandler, IBC: InterchainEnv<Chain>>(
         },
         None,
     )?;
-    runtime.block_on(interchain.wait_ibc(&src_chain.to_string(), result))?;
+    interchain.wait_ibc(&src_chain.to_string(), result)?;
     Ok(())
 }
 
@@ -47,7 +42,7 @@ fn polytone_deploy_starship() -> anyhow::Result<()> {
 
     let interchain = starship.interchain_env();
 
-    ibc_deploy_helper(&rt, &interchain, "juno-1", "stargaze-1")?;
+    ibc_deploy_helper(&interchain, "juno-1", "stargaze-1")?;
 
     Ok(())
 }
@@ -55,13 +50,12 @@ fn polytone_deploy_starship() -> anyhow::Result<()> {
 #[test]
 fn polytone_deploy_mock() -> anyhow::Result<()> {
     logger_test_init();
-    let rt = Runtime::new()?;
 
     let sender = Addr::unchecked("sender");
 
     let interchain = MockInterchainEnv::new(vec![("juno-1", &sender), ("stargaze-1", &sender)]);
 
-    ibc_deploy_helper(&rt, &interchain, "juno-1", "stargaze-1")?;
+    ibc_deploy_helper(&interchain, "juno-1", "stargaze-1")?;
 
     Ok(())
 }

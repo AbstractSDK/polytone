@@ -17,8 +17,7 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
         dest: &Polytone<Chain>,
     ) -> anyhow::Result<PolytoneConnection<Chain>> {
         // We need to create a channel between the two contracts
-        interchain_env
-            .create_contract_channel(&source.note, &dest.voice, POLYTONE_VERSION)?;
+        interchain_env.create_contract_channel(&source.note, &dest.voice, POLYTONE_VERSION)?;
 
         Ok(PolytoneConnection {
             source: source.clone(),
