@@ -562,9 +562,9 @@ dependencies = [
 
 [[package]]
 name = "cpufeatures"
-version = "0.2.9"
+version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a17b76ff3a4162b0b27f354a0c87015ddad39d35f9c0c36607a3bdd175dde1f1"
+checksum = "3fbc60abd742b35f2492f808e1abbb83d45f72db402e14c55057edc9c7b1e9e4"
 dependencies = [
  "libc",
 ]
@@ -686,9 +686,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch"
-version = "0.17.0"
+version = "0.16.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "13d20d9eee646d989b94d5bc74d11ab4d82ff1fafdb8876f1c921525b781d3c7"
+checksum = "42854b13bc7bf78a61243e63f7cba3cee3acf1565696cfd21a91e9f72aa3bf49"
 dependencies = [
  "abstract-cw-multi-test 0.16.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
@@ -711,20 +711,21 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-contract-derive"
-version = "0.17.0"
+version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b9407c762eb146dae49ceb19c3a7482654460b3a6862838dcd4e2209dea64bec"
+checksum = "e1b46bb61c32f521c65cf445a1ebaf92fb2d9ecc93fca69da9a21cb62712aabe"
 dependencies = [
  "convert_case",
+ "log",
  "quote",
  "syn 1.0.109",
 ]
 
 [[package]]
 name = "cw-orch-core"
-version = "0.17.0"
+version = "0.16.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "52ffdd0cec018c4d69ba9325989f5ace47dc95b54ec878927ce61ec5b4bf8790"
+checksum = "13258e0fad1fd79b01d794877810963e908dab0e0899e7a8a65ae7a9eba3217f"
 dependencies = [
  "abstract-cw-multi-test 0.16.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
@@ -738,9 +739,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-daemon"
-version = "0.17.0"
+version = "0.16.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8fead0f4925b24f834de64c9da305bec3f732922c83545797aa733be2f536b4d"
+checksum = "3575b1303d0e7bce902f2bec4b54f249d8a50841eae8a442cdaad0a370ae913f"
 dependencies = [
  "abstract-cw-multi-test 0.16.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
@@ -750,10 +751,12 @@ dependencies = [
  "chrono",
  "cosmrs",
  "cosmwasm-std",
+ "cw-orch-contract-derive",
  "cw-orch-core",
+ "cw-orch-fns-derive",
  "cw-orch-networks",
  "cw-orch-traits",
- "dirs",
+ "derive_builder",
  "ed25519-dalek",
  "eyre",
  "flate2",
@@ -766,13 +769,14 @@ dependencies = [
  "prost-types",
  "rand_core 0.6.4",
  "reqwest",
- "ring 0.17.5",
+ "ring 0.16.20",
  "ripemd",
  "schemars",
  "secp256k1",
  "serde",
  "serde_json",
  "sha256",
+ "shellexpand",
  "thiserror",
  "tokio",
  "tonic",
@@ -780,9 +784,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-fns-derive"
-version = "0.17.0"
+version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ff7cb13957c13f7b3d74974545b7641513487c4c57ca0dcf38acb01e4e62df4"
+checksum = "db7242ad1ad0436acb8521f8063b76355172912f058aa6e6b986669ca35b5c4f"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -793,7 +797,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain"
 version = "0.16.2"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?branch=main#3b1003092f8e2bfe55903c813d952993008d313f"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?tag=v0.16.4#43af087bc4b78a00e97415af92370bcbae05f9b8"
 dependencies = [
  "cosmwasm-std",
  "cw-orch",
@@ -811,7 +815,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-core"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?branch=main#3b1003092f8e2bfe55903c813d952993008d313f"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?tag=v0.16.4#43af087bc4b78a00e97415af92370bcbae05f9b8"
 dependencies = [
  "anyhow",
  "base64 0.21.4",
@@ -829,7 +833,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-daemon"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?branch=main#3b1003092f8e2bfe55903c813d952993008d313f"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?tag=v0.16.4#43af087bc4b78a00e97415af92370bcbae05f9b8"
 dependencies = [
  "anyhow",
  "async-recursion",
@@ -857,7 +861,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-mock"
 version = "0.16.0"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?branch=main#3b1003092f8e2bfe55903c813d952993008d313f"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?tag=v0.16.4#43af087bc4b78a00e97415af92370bcbae05f9b8"
 dependencies = [
  "abstract-cw-multi-test 0.16.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "anyhow",
@@ -874,9 +878,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-mock"
-version = "0.17.0"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0b186240966a58a4ba28a63b0b7683add60707ae319cf32259940e5b9728dc3"
+checksum = "ee3f93a13a59c91821ae08e807ad149f1a4e2350fc7b45b845aad898d7b3eb70"
 dependencies = [
  "abstract-cw-multi-test 0.16.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "cosmwasm-std",
@@ -887,11 +891,10 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-networks"
-version = "0.17.0"
+version = "0.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c92e671c559de302a252db462da0c3ec476b9d83a280160b701faef1a07ac324"
+checksum = "d5a4ad254bda4d5af6631b7b2342941d720b31c2eaadb3c9f746b46940ee3f4f"
 dependencies = [
- "cw-orch-core",
  "ibc-chain-registry",
  "serde",
 ]
@@ -912,7 +915,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-starship"
 version = "0.16.1"
-source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?branch=main#3b1003092f8e2bfe55903c813d952993008d313f"
+source = "git+ssh://git@github.com/AbstractSDK/cw-orch-interchain.git?tag=v0.16.4#43af087bc4b78a00e97415af92370bcbae05f9b8"
 dependencies = [
  "cosmwasm-std",
  "cw-orch",
@@ -927,9 +930,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-traits"
-version = "0.17.0"
+version = "0.16.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "119c4b3d00b5fab17cd885b330ecfbbcfcb93b542b78a1855cbed70e2b8193da"
+checksum = "5a81a36ac603e49eecbaca0c76ed02d05bf793bd64ef303fb4bf2d8b0b152efd"
 dependencies = [
  "cw-orch-core",
  "prost",
@@ -3340,6 +3343,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "24188a676b6ae68c3b2cb3a01be17fbf7240ce009799bb56d5b1409051e78fde"
 
 [[package]]
+name = "shellexpand"
+version = "3.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "da03fa3b94cc19e3ebfc88c4229c49d8f08cdbd1228870a45f0ffdf84988e14b"
+dependencies = [
+ "dirs",
+]
+
+[[package]]
 name = "signal-hook-registry"
 version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3682,18 +3694,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.49"
+version = "1.0.50"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1177e8c6d7ede7afde3585fd2513e611227efd6481bd78d2e82ba1ce16557ed4"
+checksum = "f9a7210f5c9a7156bb50aa36aed4c95afb51df0df00713949448cf9e97d382d2"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.49"
+version = "1.0.50"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10712f02019e9288794769fba95cd6847df9874d49d871d062172f9dd41bc4cc"
+checksum = "266b2e40bc00e5a6c09c3584011e08b06f123c00362c92b975ba9843aaaa14b8"
 dependencies = [
  "proc-macro2",
  "quote",
