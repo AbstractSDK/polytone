@@ -1,5 +1,5 @@
 [package]
-name = "cw-orch-polytone"
+name = "scripts"
 edition.workspace = true
 license.workspace = true
 repository.workspace = true
@@ -9,12 +9,9 @@ version.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cosmwasm-std = "1.5.0"
-cw-orch = { workspace = true, features=["daemon"] }
-
-polytone-note = { workspace = true, features = ["interface"] }
-polytone-proxy = { workspace = true }
-polytone-voice = { workspace = true }
-
-[dev-dependencies]
 anyhow.workspace = true
+cw-orch.workspace = true
+cw-orch-polytone = { version = "1.0.0", path = "../packages/interface" }
+dotenv = "0.15.0"
+log = "0.4.20"
+pretty_env_logger = "0.5.0"

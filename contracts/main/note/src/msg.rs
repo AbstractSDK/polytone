@@ -44,6 +44,7 @@ pub enum ExecuteMsg {
     /// perform no additional actions, pass an empty list to
     /// `msgs`. Accounts are queryable via the `RemoteAddress {
     /// local_address }` query after they have been created.
+    #[cfg_attr(feature="interface", fn_name("ibc_execute"))]
     Execute {
         msgs: Vec<CosmosMsg<Empty>>,
         callback: Option<CallbackRequest>,

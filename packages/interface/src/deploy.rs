@@ -3,8 +3,10 @@ use std::path::PathBuf;
 use crate::{PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cw_orch::{
     deploy::Deploy,
-    prelude::{ContractInstance, CwEnv, CwOrchError, CwOrchInstantiate, CwOrchUpload},
+    prelude::{ContractInstance, CwEnv, CwOrchError, CwOrchInstantiate, CwOrchUpload, Addr},
 };
+use cosmwasm_std::CosmosMsg;
+use polytone_note::msg::ExecuteMsgFns;
 
 use crate::Polytone;
 
@@ -29,28 +31,13 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
         Ok(polytone)
     }
 
-    fn deploy_on(chain: Chain, _data: Self::DeployData) -> Result<Self, CwOrchError> {
+    fn deploy_on(chain: Chain, data: Self::DeployData) -> Result<Self, CwOrchError> {
         // upload
         let deployment = Self::store_on(chain.clone())?;
 
-        deployment.note.instantiate(
-            &polytone_note::msg::InstantiateMsg {
-                pair: None,
-                block_max_gas: MAX_BLOCK_GAS.into(),
-            },
-            None,
-            None,
-        )?;
-
-        deployment.voice.instantiate(
-            &polytone_voice::msg::InstantiateMsg {
-                proxy_code_id: deployment.proxy.code_id()?.into(),
-                block_max_gas: MAX_BLOCK_GAS.into(),
-            },
-            None,
-            None,
-        )?;
-
+        deployment.instantiate_note(data.clone())?;
+        deployment.instantiate_voice(data)?;
+       
         Ok(deployment)
     }
 
@@ -67,11 +54,11 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
     fn load_from(chain: Chain) -> Result<Self, Self::Error> {
         let mut polytone = Self::new(chain);
         // We register all the contracts default state
-        polytone.set_contracts_state();
+        polytone.set_contracts_state(None);
         Ok(polytone)
     }
 
-    fn deployed_state_file_path(&self) -> Option<String> {
+    fn deployed_state_file_path() -> Option<String> {
         let crate_path = env!("CARGO_MANIFEST_DIR");
         Some(
             PathBuf::from(crate_path)
@@ -89,6 +76,32 @@ impl<Chain: CwEnv> Polytone<Chain> {
         let proxy = PolytoneProxy::new(POLYTONE_PROXY, chain.clone());
 
         Polytone { note, voice, proxy }
+    }
+
+    pub fn instantiate_note(&self, admin: Option<String>) -> Result<Chain::Response, CwOrchError>{
+        self.note.instantiate(
+            &polytone_note::msg::InstantiateMsg {
+                pair: None,
+                block_max_gas: MAX_BLOCK_GAS.into(),
+            },
+            admin.map(Addr::unchecked).as_ref(),
+            None,
+        )
+    }
+
+    pub fn instantiate_voice(&self, admin: Option<String>) -> Result<Chain::Response, CwOrchError>{
+        self.voice.instantiate(
+            &polytone_voice::msg::InstantiateMsg {
+                proxy_code_id: self.proxy.code_id()?.into(),
+                block_max_gas: MAX_BLOCK_GAS.into(),
+            },
+            admin.map(Addr::unchecked).as_ref(),
+            None,
+        )
+    }
+
+    pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError>{
+        self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
     }
 }
 
