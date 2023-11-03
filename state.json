@@ -1,6 +1,9 @@
 {
   "archway": {
     "archway-1": {
+      "archway-1-->osmosis-1": {
+        "polytone:note": "archway1zla0cm4sjytmktj4skrdm00hlars6q4jgkeqz5wy0tlftzu494tsqpkhuj"
+      },
       "code_ids": {
         "polytone:note": 206,
         "polytone:proxy": 208,
@@ -34,6 +37,9 @@
   },
   "osmosis": {
     "osmosis-1": {
+      "archway-1-->osmosis-1": {
+        "polytone:voice": "osmo1kju3qsgcfwfuhqdrwm623xrf7hn3lmp2scaznxn75r3mlv36x4xsc7lnz2"
+      },
       "code_ids": {
         "polytone:note": 126,
         "polytone:proxy": 127,

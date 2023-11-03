@@ -5,19 +5,24 @@ use cw_orch_polytone::Polytone;
 
 fn main() {
     let chain = ARCHWAY_1;
-    upload_contracts(chain).unwrap();
+    verify_deployment(chain).unwrap();
 }
 
-fn upload_contracts(chain: ChainInfo) -> anyhow::Result<()> {
+fn verify_deployment(chain: ChainInfo) -> anyhow::Result<()> {
     pretty_env_logger::init();
     dotenv::dotenv()?;
     let rt = Runtime::new()?;
     let daemon = DaemonBuilder::default()
-        .chain(chain)
+        .chain(chain.clone())
         .handle(rt.handle())
         .build()?;
 
-    let _polytone = Polytone::store_on(daemon)?;
+    let polytone = Polytone::load_from(daemon)?;
+    println!(
+        "Note code id on {} : {}",
+        chain.chain_id,
+        polytone.note.code_id()?
+    );
 
     Ok(())
 }
