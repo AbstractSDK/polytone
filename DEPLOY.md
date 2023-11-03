@@ -30,7 +30,7 @@ You can specify optional addresses that will own the contracts migration rights 
 
 ## Channel creation
 
-Finally you need to create a channel between the txo contracts. 
+Finally you need to create a channel between the txo contracts.
 
 ### Hermes setup
 
@@ -44,14 +44,39 @@ Finally you need to create a channel between the txo contracts.
 3. You need to add your mnemonics or account keys to the relayer on both chains. [Follow this tutorial to learn how to add keys](https://hermes.informal.systems/tutorials/production/setup-hermes.html#setup-accounts).
 4. You might need to adjust the `key_name` variables in the `$HOME/.hermes/config.toml` file to the name of the key you created.
 5. You may need to config the `max_gas` variables in the `$HOME/.hermes/config.toml` file because they are not set correctly by default (some errors in the following steps will guid you in that direct). We advise you to setup the `max_gas` paramter to `700000` on both chains for a correct channel creation process.
-6. You may now create a channel with: 
 
-    ```bash
-    hermes create channel --a-chain <src-chain-id> --a-connection <connection-id> --a-port wasm.<src-note-contract-address> --b-port wasm.<dst-voice-contract-address> --channel-version polytone-1
-    ```
-    e.g.
-    ```bash
-    hermes create channel --a-chain archway-1 --a-connection connection-1 --a-port wasm.archway1zla0cm4sjytmktj4skrdm00hlars6q4jgkeqz5wy0tlftzu494tsqpkhuj --b-port wasm.osmo1kju3qsgcfwfuhqdrwm623xrf7hn3lmp2scaznxn75r3mlv36x4xsc7lnz2 --channel-version polytone-1
-    ```
+### Channel command
 
-7. You can make sure everything is setup correctly by using [`scripts/src/bin/verify_deployment.rs`](scripts/src/bin/verify_deployment.rs)
+You may now create a channel with:
+
+```bash
+hermes create channel --a-chain <src-chain-id> --a-connection <connection-id> --a-port wasm.<src-note-contract-address> --b-port wasm.<dst-voice-contract-address> --channel-version polytone-1
+```
+
+e.g.
+
+```bash
+hermes create channel --a-chain archway-1 --a-connection connection-1 --a-port wasm.archway1zla0cm4sjytmktj4skrdm00hlars6q4jgkeqz5wy0tlftzu494tsqpkhuj --b-port wasm.osmo1kju3qsgcfwfuhqdrwm623xrf7hn3lmp2scaznxn75r3mlv36x4xsc7lnz2 --channel-version polytone-1
+```
+
+In return you should get all the channel ids you need (on the `src_chain` and on the `dst_chain`).
+
+### Testing
+
+You can make sure everything is setup correctly by using [`scripts/src/bin/verify_deployment.rs`](scripts/src/bin/verify_deployment.rs).
+This creates a transaction with empty sent messages across polytone. If the relayer is setup correctly, it should relay the packets succesfully with an `Ok` acknowledgment sent back
+
+### Setting up hermes to relay only packets on this channel
+
+Use the following configuration for each chain you want to relay on to limit the channel to the channel you just created.
+
+```toml
+[chains.packet_filter]
+policy = "allow"
+list = [
+    [
+    "wasm.<contract-address>",
+    "<created-channel-id>",
+],
+]
+```
