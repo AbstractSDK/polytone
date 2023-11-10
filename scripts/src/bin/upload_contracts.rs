@@ -1,10 +1,8 @@
-use cw_orch::{
-    daemon::ChainInfo, prelude::networks::ARCHWAY_1, prelude::*, tokio::runtime::Runtime,
-};
+use cw_orch::{daemon::ChainInfo, prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_polytone::Polytone;
 
 fn main() {
-    let chain = ARCHWAY_1;
+    let chain = PHOENIX_1;
     upload_contracts(chain).unwrap();
 }
 

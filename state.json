@@ -1,22 +1,43 @@
 {
   "archway": {
     "archway-1": {
+      "archway-1-->juno-1": {
+        "polytone:note": "archway127xg63gy0s8qhlk7matnypymp0cuww4yx87td87hp52f9lp7yadsw8n963"
+      },
       "archway-1-->osmosis-1": {
         "polytone:note": "archway1zla0cm4sjytmktj4skrdm00hlars6q4jgkeqz5wy0tlftzu494tsqpkhuj"
+      },
+      "archway-1-->phoenix-1": {
+        "polytone:note": "archway18hylzwtvx68m8pffctkkwe7d42jkaq682v2s450mk2qt8r0n530qjldw0d"
       },
       "code_ids": {
         "polytone:note": 206,
         "polytone:proxy": 208,
         "polytone:voice": 207
+      },
+      "juno-1-->archway-1": {
+        "polytone:voice": "archway16v6tzjhgt5v5mlfmh5x269vz5gc0t09flgzextspnkym6cc79m0qy0z40s"
+      },
+      "osmosis-1-->archway-1": {
+        "polytone:voice": "archway1c7vceg88kylv0u6lpqc6fejqkw50shg0mm84kacpkdkwtljked9q0kgkcy"
+      },
+      "phoenix-1-->archway-1": {
+        "polytone:voice": "archway1ge0zdux54pn8f234l203nvugl4xnsr6hgv3tyah2wwm8qgz4y6esfzpwgg"
       }
     }
   },
   "juno": {
     "juno-1": {
+      "archway-1-->juno-1": {
+        "polytone:voice": "juno1zr8lfu9nxr62qhwllau8uanrlhwjamtfx58lda7fxwnakm4mvutqwu2f3c"
+      },
       "code_ids": {
         "polytone:note": 3320,
         "polytone:proxy": 3321,
         "polytone:voice": 3322
+      },
+      "juno-1-->archway-1": {
+        "polytone:note": "juno129y879p7fc7lwktj5c72cqrxyl6n9t4e3a9knr5mwjfc5algft0sw6ep29"
       }
     },
     "uni-6": {
@@ -44,6 +65,9 @@
         "polytone:note": 126,
         "polytone:proxy": 127,
         "polytone:voice": 128
+      },
+      "osmosis-1-->archway-1": {
+        "polytone:note": "osmo14528h5e3c9knxzp82tex0gehhwx2qmz7fm32ntk6yluas27aknssrqkled"
       }
     }
   },
@@ -53,6 +77,22 @@
         "polytone:note": 95,
         "polytone:proxy": 96,
         "polytone:voice": 97
+      }
+    }
+  },
+  "terra2": {
+    "phoenix-1": {
+      "archway-1-->phoenix-1": {
+        "polytone:voice": "terra1k5evzuxqg649k32w0934epu4nv0lj906z4fv2a3lnemq85fe320srd4qn6"
+      },
+      "code_ids": {
+        "polytone:note": 2071,
+        "polytone:proxy": 2073,
+        "polytone:voice": 2072
+      },
+      "default": {},
+      "phoenix-1-->archway-1": {
+        "polytone:note": "terra1x366fdkmpd88fvtjq09ksupjjgre6fr08zulwn3qe8mfefxfd3jswdmy3x"
       }
     }
   }

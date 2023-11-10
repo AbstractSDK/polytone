@@ -1,18 +1,17 @@
 use cw_orch::{
     daemon::ChainInfo,
-    prelude::networks::{osmosis::OSMOSIS_1, ARCHWAY_1},
-    prelude::*,
+    prelude::{networks::*, *},
     tokio::runtime::Runtime,
 };
 use cw_orch_polytone::Polytone;
-use scripts::helpers::get_deployment_id;
+use scripts::{helpers::get_deployment_id, *};
 /// This stays unsued and is used for reference for channel creation
 pub const POLYTONE_VERSION: &str = "polytone-1";
 fn main() {
-    let src_chain = ARCHWAY_1;
-    let dst_chain = OSMOSIS_1;
-    let src_admin_addr = Some("archway1t07t5ejcwtlclnelvtsdf3rx30kxvczlwcg4ks");
-    let dst_admin_addr = Some("osmo1t07t5ejcwtlclnelvtsdf3rx30kxvczlng8p24");
+    let src_chain = PHOENIX_1;
+    let dst_chain = ARCHWAY_1;
+    let src_admin_addr = Some(TERRA_ADMIN_ADDR);
+    let dst_admin_addr = Some(ARCHWAY_ADMIN_ADDR);
 
     instantiate_two_chains(src_chain, dst_chain, src_admin_addr, dst_admin_addr).unwrap();
 }

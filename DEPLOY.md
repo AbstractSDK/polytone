@@ -30,7 +30,7 @@ You can specify optional addresses that will own the contracts migration rights 
 
 ## Channel creation
 
-Finally you need to create a channel between the txo contracts.
+Finally you need to create a channel between the two contracts.
 
 ### Hermes setup
 
@@ -80,3 +80,12 @@ list = [
 ],
 ]
 ```
+
+## Deploy Matrix:
+
+| From\To | Osmosis | Archway | Terra | Juno |
+|---|---|---|---|---|
+| Osmosis | ❌ | ✅ |  |  |
+| Archway | ✅ | ❌ | 🚧 | ✅ |
+| Terra |  | 🚧 | ❌ |  |
+| Juno |  | ✅ |  | ❌ |
