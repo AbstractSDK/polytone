@@ -84,7 +84,7 @@ list = [
 ## Deploy Matrix:
 
 | From\To | Osmosis | Archway | Terra | Juno | Neutron | Stargaze |
-|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Osmosis | ❌ | ✅ |  |  | | |
 | Archway | ✅ | ❌ | ✅ | ✅ | | ✅ |
 | Terra |  | ✅ | ❌ |  | | |
