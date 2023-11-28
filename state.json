@@ -4,11 +4,17 @@
       "archway-1-->juno-1": {
         "polytone:note": "archway127xg63gy0s8qhlk7matnypymp0cuww4yx87td87hp52f9lp7yadsw8n963"
       },
+      "archway-1-->neutron-1": {
+        "polytone:note": "archway1sqaustkd60n6m2s2t82ml373wsyl6gag547h5n4r0spr96kuat3qrfdrx2"
+      },
       "archway-1-->osmosis-1": {
         "polytone:note": "archway1zla0cm4sjytmktj4skrdm00hlars6q4jgkeqz5wy0tlftzu494tsqpkhuj"
       },
       "archway-1-->phoenix-1": {
         "polytone:note": "archway18hylzwtvx68m8pffctkkwe7d42jkaq682v2s450mk2qt8r0n530qjldw0d"
+      },
+      "archway-1-->stargaze-1": {
+        "polytone:note": "archway1x2rg8xe9cq6qgy7ejjs7stkkh7zmnd2ymdkygycf5l9dva2fvjussdyx4x"
       },
       "code_ids": {
         "polytone:note": 206,
@@ -18,11 +24,17 @@
       "juno-1-->archway-1": {
         "polytone:voice": "archway16v6tzjhgt5v5mlfmh5x269vz5gc0t09flgzextspnkym6cc79m0qy0z40s"
       },
+      "neutron-1-->archway-1": {
+        "polytone:voice": "archway1qr94yuptq5h0nj5xctzft3q33262j2ajsquh42tpe0lptpev6rkswtfld5"
+      },
       "osmosis-1-->archway-1": {
         "polytone:voice": "archway1c7vceg88kylv0u6lpqc6fejqkw50shg0mm84kacpkdkwtljked9q0kgkcy"
       },
       "phoenix-1-->archway-1": {
         "polytone:voice": "archway1ge0zdux54pn8f234l203nvugl4xnsr6hgv3tyah2wwm8qgz4y6esfzpwgg"
+      },
+      "stargaze-1-->archway-1": {
+        "polytone:voice": "archway1hd4s3z4ga7f26eae4p44mp70dvr5my39d7l2qrh2hrl74jsv22dquc6h63"
       }
     }
   },
@@ -53,6 +65,9 @@
       "code_ids": {
         "polytone:note": 230,
         "polytone:proxy": 231
+      },
+      "neutron-1-->archway-1": {
+        "polytone:note": "neutron1kprjz0qusrcxvvhfklw0krn7g6ze36hzjuuhmktkepeyx5shljdqflwe2m"
       }
     }
   },
@@ -73,10 +88,16 @@
   },
   "stargaze": {
     "stargaze-1": {
+      "archway-1-->stargaze-1": {
+        "polytone:voice": "stars18ug3f0c7cqz5y2k38z6perudyeggvzhsel9qe7xl5x88xzxmwvxsl4v2kq"
+      },
       "code_ids": {
         "polytone:note": 95,
         "polytone:proxy": 96,
         "polytone:voice": 97
+      },
+      "stargaze-1-->archway-1": {
+        "polytone:note": "stars1ny7xvq2l07sgxdrak4qzrcj8eszyk5cwx34fkdshw4gyv84nyeus9cuw45"
       }
     }
   },

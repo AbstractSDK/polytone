@@ -43,7 +43,7 @@ Finally you need to create a channel between the two contracts.
 
 3. You need to add your mnemonics or account keys to the relayer on both chains. [Follow this tutorial to learn how to add keys](https://hermes.informal.systems/tutorials/production/setup-hermes.html#setup-accounts).
 4. You might need to adjust the `key_name` variables in the `$HOME/.hermes/config.toml` file to the name of the key you created.
-5. You may need to config the `max_gas` variables in the `$HOME/.hermes/config.toml` file because they are not set correctly by default (some errors in the following steps will guid you in that direct). We advise you to setup the `max_gas` paramter to `700000` on both chains for a correct channel creation process.
+5. You may need to config the `max_gas` variables in the `$HOME/.hermes/config.toml` file because they are not set correctly by default (some errors in the following steps will guid you in that direct). We advise you to setup the `max_gas` paramter to `1000000` on both chains for a correct channel creation process.
 
 ### Channel command
 
