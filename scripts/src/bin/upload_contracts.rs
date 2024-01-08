@@ -2,8 +2,7 @@ use cw_orch::{daemon::ChainInfo, prelude::networks::*, prelude::*, tokio::runtim
 use cw_orch_polytone::Polytone;
 
 fn main() {
-    let mut chain = NEUTRON_1;
-    chain.gas_price = 0.56;
+    let chain = PHOENIX_1;
     upload_contracts(chain).unwrap();
 }
 

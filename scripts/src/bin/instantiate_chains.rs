@@ -9,7 +9,7 @@ use scripts::{helpers::get_deployment_id, *};
 pub const POLYTONE_VERSION: &str = "polytone-1";
 fn main() {
     let src_chain = KAIYO_1;
-    let dst_chain = OSMOSIS_1;
+    let dst_chain = PHOENIX_1;
 
     instantiate_two_chains(src_chain, dst_chain).unwrap();
 }
@@ -30,7 +30,7 @@ fn instantiate_two_chains(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow:
         .deployment_id(deployment_id.clone())
         .build()?;
     let src_polytone = Polytone::load_from(src_daemon)?;
-    // src_polytone.instantiate_note(None)?;
+    src_polytone.instantiate_note(None)?;
 
     let dst_daemon = DaemonBuilder::default()
         .chain(dst_chain)

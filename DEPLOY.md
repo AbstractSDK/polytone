@@ -81,14 +81,21 @@ list = [
 ]
 ```
 
-## Deploy Matrix :
+## Deploy Matrix
 
-| From\To  | Osmosis | Archway | Terra | Juno | Neutron | Stargaze | Kujira |
-|---       |----|----|----|----|----|----|----|
-| Osmosis  | ❌ | ✅ |    |    |    |    | ✅ |
-| Archway  | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Terra    |    | ✅ | ❌ |    |    |    | ✅ |
-| Juno     |    | ✅ |    | ❌ |    |    | ✅ |
-| Neutron  |    | ✅ |    |    | ❌ |    | ✅ |
-| Stargaze |    | ✅ |    |    |    | ❌ | ✅ |
-| Kujira   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| From\To  | Osmosis | Archway | Terra | Juno | Neutron | Stargaze | Kujira | Migaloo |
+|---       |----|----|----|----|----|----|----|----|
+| Osmosis  | ❌ | ✅ | 🟢 | 🟢 | 🟢 | 🟢 | ✅ | 🟢 |
+| Archway  | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |    |
+| Terra    |    | ✅ | ❌ | 🟢 |    |    | ✅ |    |
+| Juno     | 🟢 | ✅ | 🟢 | ❌ |    | 🟢 | ✅ | 🟢 |
+| Neutron  | 🟢 | ✅ | 🟢 |    | ❌ | 🟢 | ✅ |    |
+| Stargaze | 🟢 | ✅ |    | 🟢 | 🟢 | ❌ | ✅ | 🟢 |
+| Kujira   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |    |
+| Migaloo  | 🟢 |    |    | 🟢 |    | 🟢 |    | ❌ |
+
+✅: Deployed by Abstract
+
+❌: No reason to deploy
+
+🟢: Deployed by DA0DA0
