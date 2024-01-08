@@ -81,13 +81,14 @@ list = [
 ]
 ```
 
-## Deploy Matrix:
+## Deploy Matrix :
 
-| From\To | Osmosis | Archway | Terra | Juno | Neutron | Stargaze |
-|---|---|---|---|---|---|---|
-| Osmosis | ❌ | ✅ |  |  | | |
-| Archway | ✅ | ❌ | ✅ | ✅ | | ✅ |
-| Terra |  | ✅ | ❌ |  | | |
-| Juno |  | ✅ |  | ❌ | | |
-| Neutron |  | ✅ |  |  | ❌ | |
-| Stargaze |  | ✅ |  | | | ❌|
+| From\To  | Osmosis | Archway | Terra | Juno | Neutron | Stargaze | Kujira |
+|---       |----|----|----|----|----|----|----|
+| Osmosis  | ❌ | ✅ |    |    |    |    | ✅ |
+| Archway  | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Terra    |    | ✅ | ❌ |    |    |    | ✅ |
+| Juno     |    | ✅ |    | ❌ |    |    | ✅ |
+| Neutron  |    | ✅ |    |    | ❌ |    | ✅ |
+| Stargaze |    | ✅ |    |    |    | ❌ | ✅ |
+| Kujira   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |

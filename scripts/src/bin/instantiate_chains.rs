@@ -8,23 +8,16 @@ use scripts::{helpers::get_deployment_id, *};
 /// This stays unsued and is used for reference for channel creation
 pub const POLYTONE_VERSION: &str = "polytone-1";
 fn main() {
-    let src_chain = PHOENIX_1;
-    let dst_chain = ARCHWAY_1;
-    let src_admin_addr = Some(TERRA_ADMIN_ADDR);
-    let dst_admin_addr = Some(ARCHWAY_ADMIN_ADDR);
+    let src_chain = KAIYO_1;
+    let dst_chain = OSMOSIS_1;
 
-    instantiate_two_chains(src_chain, dst_chain, src_admin_addr, dst_admin_addr).unwrap();
+    instantiate_two_chains(src_chain, dst_chain).unwrap();
 }
 
 /// Instantiates a polytone connection between two chains
 /// The channel needs to be created by a relayer.
 /// It leverages the deployment id of abstract to have multiple connections on the same chain
-fn instantiate_two_chains(
-    src_chain: ChainInfo,
-    dst_chain: ChainInfo,
-    src_admin_addr: Option<&str>,
-    dst_admin_addr: Option<&str>,
-) -> anyhow::Result<()> {
+fn instantiate_two_chains(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Result<()> {
     dotenv::dotenv()?;
     pretty_env_logger::init();
     let rt = Runtime::new()?;
@@ -37,7 +30,7 @@ fn instantiate_two_chains(
         .deployment_id(deployment_id.clone())
         .build()?;
     let src_polytone = Polytone::load_from(src_daemon)?;
-    src_polytone.instantiate_note(src_admin_addr.map(|s| s.to_string()))?;
+    // src_polytone.instantiate_note(None)?;
 
     let dst_daemon = DaemonBuilder::default()
         .chain(dst_chain)
@@ -46,7 +39,7 @@ fn instantiate_two_chains(
         .build()?;
 
     let dst_polytone = Polytone::load_from(dst_daemon)?;
-    dst_polytone.instantiate_voice(dst_admin_addr.map(|s| s.to_string()))?;
+    dst_polytone.instantiate_voice(None)?;
 
     log::info!("Started creation of a polytone connection between two chains.");
     log::info!("Instantiated 2 contracts : ");

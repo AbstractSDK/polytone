@@ -2,13 +2,14 @@ use cw_orch::{daemon::ChainInfo, prelude::networks::*, prelude::*, tokio::runtim
 use cw_orch_polytone::Polytone;
 
 fn main() {
-    let chain = PHOENIX_1;
+    let mut chain = NEUTRON_1;
+    chain.gas_price = 0.56;
     upload_contracts(chain).unwrap();
 }
 
 fn upload_contracts(chain: ChainInfo) -> anyhow::Result<()> {
-    pretty_env_logger::init();
     dotenv::dotenv()?;
+    pretty_env_logger::init();
     let rt = Runtime::new()?;
     let daemon = DaemonBuilder::default()
         .chain(chain)
