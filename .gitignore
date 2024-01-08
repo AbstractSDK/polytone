@@ -19,6 +19,7 @@ target/
 # Build artifacts
 hash.txt
 contracts.txt
+artifacts/
 
 # code coverage
 tarpaulin-report.*
@@ -29,4 +30,6 @@ ci/configs/cosm-orc/local.yaml
 
 contracts/**/Cargo.lock
 packages/**/Cargo.lock
+
+# Private env file
 .env

@@ -2,7 +2,7 @@ use cosmos_sdk_proto::cosmwasm::wasm::v1::MsgClearAdminResponse;
 use cosmos_sdk_proto::traits::Message;
 use cosmos_sdk_proto::Any;
 use cosmos_sdk_proto::{cosmwasm::wasm::v1::MsgClearAdmin, traits::TypeUrl};
-use cw_orch::daemon::networks::{JUNO_1, NEUTRON_1, OSMOSIS_1, PHOENIX_1};
+use cw_orch::daemon::networks::{JUNO_1, PHOENIX_1};
 use cw_orch::daemon::Daemon;
 use cw_orch::state::{ChainState, StateInterface};
 use cw_orch::{

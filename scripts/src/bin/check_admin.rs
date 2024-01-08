@@ -5,8 +5,6 @@ use cw_orch::daemon::Daemon;
 use cw_orch::state::{ChainState, StateInterface};
 use cw_orch::{
     daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
-    environment::TxHandler,
-    prelude::Stargate,
     tokio::runtime::Runtime,
 };
 use scripts::helpers::get_deployment_id;

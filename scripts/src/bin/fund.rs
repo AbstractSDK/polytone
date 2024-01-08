@@ -1,12 +1,11 @@
 use std::env;
 
 use cosmwasm_std::coin;
-use cw_orch::daemon::networks::{JUNO_1, NEUTRON_1, OSMOSIS_1, PHOENIX_1};
+use cw_orch::daemon::networks::{JUNO_1, NEUTRON_1, PHOENIX_1};
 use cw_orch::prelude::Coin;
 use cw_orch::{
-    daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
+    daemon::{ChainInfo, DaemonBuilder},
     environment::TxHandler,
-    prelude::Stargate,
     tokio::runtime::Runtime,
 };
 use scripts::STARGAZE_1;
@@ -47,7 +46,7 @@ pub fn fund_admin_wallet(chain: &ChainInfo, funds: Coin) -> anyhow::Result<()> {
         mainnet_wallet
             .daemon
             .sender
-            .bank_send(&wallet_to_fund.sender().to_string(), vec![funds]),
+            .bank_send(wallet_to_fund.sender().as_ref(), vec![funds]),
     )?;
 
     Ok(())

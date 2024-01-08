@@ -928,7 +928,7 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-polytone"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "cosmwasm-std",
@@ -2717,7 +2717,7 @@ checksum = "14e6ab3f592e6fb464fc9712d8d6e6912de6473954635fd76a589d832cffcbb0"
 
 [[package]]
 name = "polytone"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -2727,7 +2727,7 @@ dependencies = [
 
 [[package]]
 name = "polytone-listener"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -2742,7 +2742,7 @@ dependencies = [
 
 [[package]]
 name = "polytone-note"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -2758,7 +2758,7 @@ dependencies = [
 
 [[package]]
 name = "polytone-proxy"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -2773,7 +2773,7 @@ dependencies = [
 
 [[package]]
 name = "polytone-tester"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -2785,7 +2785,7 @@ dependencies = [
 
 [[package]]
 name = "polytone-voice"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "cosmwasm-schema",
@@ -3307,7 +3307,7 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "scripts"
-version = "1.0.0"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "cosmos-sdk-proto 0.19.0",
