@@ -28,6 +28,76 @@ dependencies = [
 ]
 
 [[package]]
+name = "abstract-cw-orch-polytone"
+version = "1.0.2"
+dependencies = [
+ "abstract-polytone-note",
+ "abstract-polytone-proxy",
+ "abstract-polytone-voice",
+ "anyhow",
+ "cw-orch",
+]
+
+[[package]]
+name = "abstract-polytone"
+version = "1.0.2"
+dependencies = [
+ "cosmwasm-schema",
+ "cosmwasm-std",
+ "cw-storage-plus",
+ "thiserror",
+]
+
+[[package]]
+name = "abstract-polytone-note"
+version = "1.0.2"
+dependencies = [
+ "abstract-polytone",
+ "anyhow",
+ "cosmwasm-schema",
+ "cosmwasm-std",
+ "cw-multi-test",
+ "cw-orch",
+ "cw-storage-plus",
+ "cw-utils",
+ "cw2",
+ "thiserror",
+]
+
+[[package]]
+name = "abstract-polytone-proxy"
+version = "1.0.2"
+dependencies = [
+ "abstract-polytone",
+ "cosmwasm-schema",
+ "cosmwasm-std",
+ "cw-multi-test",
+ "cw-orch",
+ "cw-storage-plus",
+ "cw-utils",
+ "cw2",
+ "thiserror",
+]
+
+[[package]]
+name = "abstract-polytone-voice"
+version = "1.0.2"
+dependencies = [
+ "abstract-polytone",
+ "abstract-polytone-proxy",
+ "anyhow",
+ "cosmwasm-schema",
+ "cosmwasm-std",
+ "cw-multi-test",
+ "cw-orch",
+ "cw-storage-plus",
+ "cw-utils",
+ "cw2",
+ "sha2 0.10.8",
+ "thiserror",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -811,17 +881,6 @@ dependencies = [
  "cw-orch-core",
  "ibc-chain-registry",
  "serde",
-]
-
-[[package]]
-name = "cw-orch-polytone"
-version = "1.0.2"
-dependencies = [
- "anyhow",
- "cw-orch",
- "polytone-note",
- "polytone-proxy",
- "polytone-voice",
 ]
 
 [[package]]
@@ -2254,58 +2313,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "14e6ab3f592e6fb464fc9712d8d6e6912de6473954635fd76a589d832cffcbb0"
 
 [[package]]
-name = "polytone"
-version = "1.0.2"
-dependencies = [
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-storage-plus",
- "thiserror",
-]
-
-[[package]]
 name = "polytone-listener"
 version = "1.0.2"
 dependencies = [
+ "abstract-polytone",
+ "abstract-polytone-note",
  "anyhow",
  "cosmwasm-schema",
  "cosmwasm-std",
  "cw-multi-test",
  "cw-storage-plus",
  "cw2",
- "polytone",
- "polytone-note",
- "thiserror",
-]
-
-[[package]]
-name = "polytone-note"
-version = "1.0.2"
-dependencies = [
- "anyhow",
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-multi-test",
- "cw-orch",
- "cw-storage-plus",
- "cw-utils",
- "cw2",
- "polytone",
- "thiserror",
-]
-
-[[package]]
-name = "polytone-proxy"
-version = "1.0.2"
-dependencies = [
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-multi-test",
- "cw-orch",
- "cw-storage-plus",
- "cw-utils",
- "cw2",
- "polytone",
  "thiserror",
 ]
 
@@ -2313,29 +2331,11 @@ dependencies = [
 name = "polytone-tester"
 version = "1.0.2"
 dependencies = [
+ "abstract-polytone",
  "cosmwasm-schema",
  "cosmwasm-std",
  "cw-storage-plus",
  "cw2",
- "polytone",
- "thiserror",
-]
-
-[[package]]
-name = "polytone-voice"
-version = "1.0.2"
-dependencies = [
- "anyhow",
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-multi-test",
- "cw-orch",
- "cw-storage-plus",
- "cw-utils",
- "cw2",
- "polytone",
- "polytone-proxy",
- "sha2 0.10.8",
  "thiserror",
 ]
 

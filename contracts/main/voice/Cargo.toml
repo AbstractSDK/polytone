@@ -1,5 +1,5 @@
 [package]
-name         = "polytone-voice"
+name         = "abstract-polytone-voice"
 authors      = ["ekez <ekez@withoutdoing.com>"]
 description  = "The Polytone Voice contract, recieving notes over IBC and vocalizing them on the host chain via account proxy contracts."
 edition      = { workspace = true }
