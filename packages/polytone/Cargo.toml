@@ -1,5 +1,5 @@
 [package]
-name = "polytone"
+name = "abstract-polytone"
 authors = ["ekez <ekez@withoutdoing.com>"]
 description = "Core interfaces for Polytone Interchain accounts and queries."
 edition = { workspace = true }
