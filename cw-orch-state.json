@@ -60,6 +60,9 @@
       "juno-1-->kaiyo-1": {
         "polytone:note": "juno1z0fepsfeeew78uwespyneswt5q9aqntj55xdwdasefxpu7zjed2qa6t582"
       },
+      "juno-1-->neutron-1": {
+        "polytone:note": "juno14mcr07y0wx553rhjnhhzz6pkl66rzwpq76mgvm050uh9g73rxvys539a9p"
+      },
       "juno-1-->osmosis-1": {
         "polytone:note": "juno1ads7gcpje0y5jxhtn3ntsqs8kg3ahch9u953jk6v0njq4l39m3us5sxw68"
       },
@@ -74,6 +77,9 @@
       },
       "osmosis-1-->juno-1": {
         "polytone:voice": "juno1mkq8ggvmr7kzu85c9muud30nmdcv98050uxyqrqmmftlmag044gs3e0d0u"
+      },
+      "phoenix-1-->juno-1": {
+        "polytone:voice": "juno1ntrdr7qdaxqd8j36e7ttzdegrhy4cg4l0ft3aegjhm3wuam4885syqhkw5"
       },
       "stargaze-1-->juno-1": {
         "polytone:voice": "juno13yxra87ltv7gva3z35ktxt0nx3n5tp8ngtkj2p2zxj0qg6n906fs00wgvf"
@@ -143,6 +149,9 @@
         "polytone:proxy": 231,
         "polytone:voice": 606
       },
+      "juno-1-->neutron-1": {
+        "polytone:voice": "neutron1se6t9mknsm3k4rptg3rvw8nay2gtj224cwch2elgvk8d59al768qre67lw"
+      },
       "kaiyo-1-->neutron-1": {
         "polytone:voice": "neutron162fvv88dxpsapf3rnux63anruqach36r8qg73ehm2dv3fkat2rusw70nlx"
       },
@@ -163,6 +172,9 @@
       },
       "osmosis-1-->neutron-1": {
         "polytone:voice": "neutron14wfsdrpp9fhdfeh3wnfedz0jeeguxgz2jh5kk335zc9ghjac7mzs88tfau"
+      },
+      "phoenix-1-->neutron-1": {
+        "polytone:voice": "neutron16y5ahht24m80xnas4dv5z5qn9tytxl5ys7nea29cs8j4d90ske7qq4jxnr"
       },
       "stargaze-1-->neutron-1": {
         "polytone:voice": "neutron1ageequk45wdfcjufqa5zj5ce2c9qxrssrn8ndgft7kfa7wk2arxscp9chd"
@@ -205,6 +217,9 @@
       },
       "osmosis-1-->stargaze-1": {
         "polytone:note": "osmo1u44zc3vq37npnctdwd35n7ms3wtagfhdvdnpscq86pk6h9rmzpcsdqe992"
+      },
+      "phoenix-1-->osmosis-1": {
+        "polytone:voice": "osmo16e9r336pjs5jkg3yk6l8p7mkwzdggn4ceea2zg7e0506ds3af2jsha2whq"
       },
       "stargaze-1-->osmosis-1": {
         "polytone:voice": "osmo13w3073l43gwxw77tv2np2katn3jrvet87unyfevg8nrj755m3x7q0aaw63"
@@ -276,8 +291,17 @@
       "phoenix-1-->archway-1": {
         "polytone:note": "terra1x366fdkmpd88fvtjq09ksupjjgre6fr08zulwn3qe8mfefxfd3jswdmy3x"
       },
+      "phoenix-1-->juno-1": {
+        "polytone:note": "terra1kjmhkk4vdkwf5ghyqc562k0dy3uzykueuzl3drguw90trvg0gjmsxyzglt"
+      },
       "phoenix-1-->kaiyo-1": {
         "polytone:note": "terra1r5h8yun7yrlp9r8d508zlupzkhd2nhydljsyu6uwhllya972hxmqeu4spg"
+      },
+      "phoenix-1-->neutron-1": {
+        "polytone:note": "terra1vsk76g5xwv25ys6f8adwy85tszpv49daju5ugkgw6car9954feesc8qg97"
+      },
+      "phoenix-1-->osmosis-1": {
+        "polytone:note": "terra1wjjnesand5yc3tr6cwy8a9ska6ug0jty8le7c67qzehphvqkq9jsc0kld5"
       }
     }
   }

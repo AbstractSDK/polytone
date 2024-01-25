@@ -1,0 +1,21 @@
+[package]
+name = "scripts"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[lib]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cosmos-sdk-proto = { version = "0.19.0", features = ["cosmwasm"] }
+anyhow.workspace = true
+cosmwasm-std.workspace = true
+cw-orch.workspace = true
+cw-orch-polytone = { version = "1.0.0", path = "../packages/cw-orch-polytone" }
+dotenv = "0.15.0"
+log = "0.4.20"
+pretty_env_logger = "0.5.0"
+polytone-note = { version = "1.0.2", path = "../contracts/main/note" }
