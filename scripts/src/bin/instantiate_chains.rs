@@ -4,12 +4,14 @@ use cw_orch::{
     tokio::runtime::Runtime,
 };
 use cw_orch_polytone::Polytone;
-use scripts::{helpers::get_deployment_id, *};
+use scripts::helpers::get_deployment_id;
 /// This stays unsued and is used for reference for channel creation
 pub const POLYTONE_VERSION: &str = "polytone-1";
 fn main() {
-    let src_chain = KAIYO_1;
-    let dst_chain = PHOENIX_1;
+    let src_chain = JUNO_1;
+    let mut dst_chain = NEUTRON_1;
+
+    dst_chain.gas_price = 0.075;
 
     instantiate_two_chains(src_chain, dst_chain).unwrap();
 }
