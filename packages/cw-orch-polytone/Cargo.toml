@@ -12,6 +12,7 @@ description = "CW Orchestrator interfaces for Polytone"
 [dependencies]
 
 cw-orch = { workspace = true }
+cosmwasm-std = { workspace = true }
 polytone-note = { workspace = true, features = ["interface"] }
 polytone-proxy = { workspace = true, features = ["interface"] }
 polytone-voice = { workspace = true, features = ["interface"] }
