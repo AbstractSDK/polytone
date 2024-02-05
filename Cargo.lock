@@ -52,7 +52,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-note"
-version = "1.0.2"
+version = "1.0.5"
 dependencies = [
  "abstract-polytone",
  "anyhow",
@@ -68,7 +68,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-proxy"
-version = "1.0.2"
+version = "1.0.5"
 dependencies = [
  "abstract-polytone",
  "cosmwasm-schema",
@@ -83,7 +83,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-voice"
-version = "1.0.2"
+version = "1.0.5"
 dependencies = [
  "abstract-polytone",
  "abstract-polytone-proxy",
