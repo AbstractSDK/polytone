@@ -1,10 +1,11 @@
 use anyhow::bail;
 use cw_orch::daemon::networks::{JUNO_1, NEUTRON_1, OSMOSIS_1, PHOENIX_1};
-use cw_orch::daemon::queriers::{CosmWasm, DaemonQuerier};
+use cw_orch::daemon::queriers::CosmWasm;
 use cw_orch::daemon::Daemon;
-use cw_orch::state::{ChainState, StateInterface};
+use cw_orch::environment::ChainState;
 use cw_orch::{
     daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
+    prelude::*,
     tokio::runtime::Runtime,
 };
 use scripts::helpers::get_deployment_id;
@@ -45,12 +46,12 @@ pub fn check_admins(src_chain: &ChainInfo, dst_chain: &ChainInfo) -> anyhow::Res
 pub fn check_one_chain_admin(daemon: &Daemon) -> anyhow::Result<()> {
     let addresses = daemon.state().get_all_addresses()?;
 
-    let wasm = CosmWasm::new(daemon.channel());
+    let wasm = CosmWasm::new_async(daemon.channel());
 
     addresses
         .values()
         .map(|a| {
-            let contract_info = daemon.rt_handle.block_on(wasm.contract_info(a))?;
+            let contract_info = daemon.rt_handle.block_on(wasm._contract_info(a))?;
             if !contract_info.admin.is_empty() {
                 bail!("{:?} admin is non empty", a);
             }

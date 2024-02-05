@@ -2,10 +2,7 @@ use std::path::PathBuf;
 
 use crate::{PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cosmwasm_std::CosmosMsg;
-use cw_orch::{
-    deploy::Deploy,
-    prelude::{Addr, ContractInstance, CwEnv, CwOrchError, CwOrchInstantiate, CwOrchUpload},
-};
+use cw_orch::prelude::*;
 use polytone_note::msg::ExecuteMsgFns;
 
 use crate::Polytone;

@@ -2,10 +2,10 @@ use cw_orch::{
     contract::interface_traits::ContractInstance,
     daemon::{
         networks::{ARCHWAY_1, JUNO_1, NEUTRON_1, OSMOSIS_1, PHOENIX_1},
-        queriers::{DaemonQuerier, Ibc},
+        queriers::Ibc,
         ChainInfo, Daemon,
     },
-    deploy::Deploy,
+    prelude::*,
     tokio::runtime::{Handle, Runtime},
 };
 use cw_orch_polytone::Polytone;
@@ -60,13 +60,13 @@ fn query_one_pair(
 
     let src_port = format!("wasm.{}", src_polytone.note.addr_str()?);
 
-    let channel_description = handle
-        .block_on(Ibc::new(src_daemon.channel()).channel(src_port.clone(), src_channel.clone()))?;
+    let channel_description =
+        handle.block_on(Ibc::new(&src_daemon)._channel(src_port.clone(), src_channel.clone()))?;
 
     let counterparty = channel_description.counterparty.unwrap();
 
     // We get the counterparty connection as well
-    let counter_party_connection = handle.block_on(Ibc::new(dst_daemon.channel()).channel(
+    let counter_party_connection = handle.block_on(Ibc::new(&dst_daemon)._channel(
         counterparty.port_id.clone(),
         counterparty.channel_id.clone(),
     ))?;

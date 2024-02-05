@@ -1,10 +1,10 @@
+use cosmos_sdk_proto::cosmwasm::wasm::v1::MsgClearAdmin;
 use cosmos_sdk_proto::cosmwasm::wasm::v1::MsgClearAdminResponse;
-use cosmos_sdk_proto::traits::Message;
+use cosmos_sdk_proto::traits::{Message, Name};
 use cosmos_sdk_proto::Any;
-use cosmos_sdk_proto::{cosmwasm::wasm::v1::MsgClearAdmin, traits::TypeUrl};
 use cw_orch::daemon::networks::{JUNO_1, PHOENIX_1};
 use cw_orch::daemon::Daemon;
-use cw_orch::state::{ChainState, StateInterface};
+use cw_orch::environment::{ChainState, StateInterface};
 use cw_orch::{
     daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
     environment::TxHandler,
@@ -52,7 +52,7 @@ pub fn change_one_chain_admin(daemon: &Daemon) -> anyhow::Result<()> {
         addresses
             .values()
             .map(|a| Any {
-                type_url: MsgClearAdmin::TYPE_URL.to_string(),
+                type_url: MsgClearAdmin::type_url(),
                 value: MsgClearAdmin {
                     sender: daemon.sender().to_string(),
                     contract: a.to_string(),
