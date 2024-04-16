@@ -49,6 +49,5 @@ sha2 = "0.10.6"
 
 cw-orch = { version = "0.21.2" }
 
-
 cw-multi-test = "0.16.2"
 anyhow = { version = "1.0.51" }
