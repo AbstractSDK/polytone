@@ -47,7 +47,7 @@ sha2 = "0.10.6"
 
 # dev-dependencies
 
-cw-orch = { version = "0.20.0" }
+cw-orch = { version = "0.21.2" }
 
 
 cw-multi-test = "0.16.2"

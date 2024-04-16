@@ -13,7 +13,7 @@ version.workspace = true
 cosmos-sdk-proto = { version = "0.20.0", features = ["cosmwasm"] }
 anyhow.workspace = true
 cosmwasm-std.workspace = true
-cw-orch = { package = "cw-orch-interchain", git = "ssh://git@github.com/AbstractSDK/cw-orch-interchain.git", rev = "4b5e7ac" }
+cw-orch = { package = "cw-orch-interchain", git = "ssh://git@github.com/AbstractSDK/cw-orch-interchain.git", tag = "v0.21.0" }
 cw-orch-polytone = { workspace = true }
 dotenv = "0.15.0"
 log = "0.4.20"
