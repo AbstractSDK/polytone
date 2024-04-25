@@ -1,4 +1,4 @@
-use cw_orch::daemon::{networks::kujira::KUJIRA_NETWORK, ChainInfo, ChainKind, NetworkInfo};
+use cw_orch::{daemon::networks::kujira::KUJIRA_NETWORK, environment::{ChainInfo, ChainKind, NetworkInfo}};
 
 pub mod helpers;
 
@@ -24,7 +24,7 @@ pub const STARGAZE_1: ChainInfo = ChainInfo {
     lcd_url: None,
     fcd_url: None,
     network_info: STARGAZE,
-    kind: cw_orch::daemon::ChainKind::Mainnet,
+    kind: ChainKind::Mainnet,
 };
 
 pub const KAIYO_1: ChainInfo = ChainInfo {

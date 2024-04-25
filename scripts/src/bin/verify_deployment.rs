@@ -1,4 +1,4 @@
-use cw_orch::{daemon::ChainInfo, prelude::networks::*, prelude::*, tokio::runtime::Runtime};
+use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_polytone::Polytone;
 use scripts::helpers::get_deployment_id;
 
@@ -35,7 +35,7 @@ fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Resu
         &ChannelCreationValidator,
     );
 
-    interchain.wait_ibc(&src_chain.chain_id.to_string(), tx_response)?;
+    interchain.wait_ibc(src_chain.chain_id, tx_response)?;
 
     Ok(())
 }

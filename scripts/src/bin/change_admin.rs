@@ -4,9 +4,10 @@ use cosmos_sdk_proto::traits::{Message, Name};
 use cosmos_sdk_proto::Any;
 use cw_orch::daemon::networks::{JUNO_1, PHOENIX_1};
 use cw_orch::daemon::Daemon;
+use cw_orch::environment::ChainInfo;
 use cw_orch::environment::{ChainState, StateInterface};
 use cw_orch::{
-    daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
+    daemon::{networks::ARCHWAY_1, DaemonBuilder},
     environment::TxHandler,
     prelude::Stargate,
     tokio::runtime::Runtime,

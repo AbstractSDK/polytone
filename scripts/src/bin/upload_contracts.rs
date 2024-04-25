@@ -1,4 +1,4 @@
-use cw_orch::{daemon::ChainInfo, prelude::networks::*, prelude::*, tokio::runtime::Runtime};
+use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_polytone::Polytone;
 
 fn main() {

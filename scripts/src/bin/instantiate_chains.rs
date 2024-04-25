@@ -1,5 +1,4 @@
 use cw_orch::{
-    daemon::ChainInfo,
     prelude::{networks::*, *},
     tokio::runtime::Runtime,
 };

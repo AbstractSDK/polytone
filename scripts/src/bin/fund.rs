@@ -2,12 +2,8 @@ use std::env;
 
 use cosmwasm_std::coin;
 use cw_orch::daemon::networks::{JUNO_1, NEUTRON_1, PHOENIX_1};
-use cw_orch::prelude::Coin;
-use cw_orch::{
-    daemon::{ChainInfo, DaemonBuilder},
-    environment::TxHandler,
-    tokio::runtime::Runtime,
-};
+use cw_orch::prelude::*;
+use cw_orch::{daemon::DaemonBuilder, environment::TxHandler, tokio::runtime::Runtime};
 use scripts::STARGAZE_1;
 pub fn main() {
     dotenv::dotenv().unwrap();

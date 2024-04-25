@@ -4,7 +4,7 @@ use cw_orch::daemon::queriers::CosmWasm;
 use cw_orch::daemon::Daemon;
 use cw_orch::environment::ChainState;
 use cw_orch::{
-    daemon::{networks::ARCHWAY_1, ChainInfo, DaemonBuilder},
+    daemon::{networks::ARCHWAY_1, DaemonBuilder},
     prelude::*,
     tokio::runtime::Runtime,
 };

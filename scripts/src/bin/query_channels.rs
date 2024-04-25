@@ -3,7 +3,7 @@ use cw_orch::{
     daemon::{
         networks::{ARCHWAY_1, JUNO_1, NEUTRON_1, OSMOSIS_1, PHOENIX_1},
         queriers::Ibc,
-        ChainInfo, Daemon,
+        Daemon,
     },
     prelude::*,
     tokio::runtime::{Handle, Runtime},
