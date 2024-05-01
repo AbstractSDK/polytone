@@ -7,10 +7,8 @@ use scripts::helpers::get_deployment_id;
 /// This stays unsued and is used for reference for channel creation
 pub const POLYTONE_VERSION: &str = "polytone-1";
 fn main() {
-    let src_chain = JUNO_1;
-    let mut dst_chain = NEUTRON_1;
-
-    dst_chain.gas_price = 0.075;
+    let src_chain = XION_TESTNET_1;
+    let dst_chain = PION_1;
 
     instantiate_two_chains(src_chain, dst_chain).unwrap();
 }

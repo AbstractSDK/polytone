@@ -1,4 +1,7 @@
-use cw_orch::{daemon::networks::kujira::KUJIRA_NETWORK, environment::{ChainInfo, ChainKind, NetworkInfo}};
+use cw_orch::{
+    daemon::networks::kujira::KUJIRA_NETWORK,
+    environment::{ChainInfo, ChainKind, NetworkInfo},
+};
 
 pub mod helpers;
 
@@ -11,7 +14,7 @@ pub mod helpers;
 // pub const STARGAZE_ADMIN_ADDR: &str = "stars1t07t5ejcwtlclnelvtsdf3rx30kxvczl00rvhk";
 
 pub const STARGAZE: NetworkInfo = NetworkInfo {
-    id: "stargaze",
+    chain_name: "stargaze",
     pub_address_prefix: "stars",
     coin_type: 118,
 };

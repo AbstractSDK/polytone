@@ -7,7 +7,7 @@ CONTRACTS="proxy note voice"
 
 for lib in $CONTRACTS; do
   (
-    cd "contracts/$lib"
+    cd "contracts/main/$lib"
     echo "Publishing $lib"
     cargo publish
   )

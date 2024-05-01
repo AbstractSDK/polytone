@@ -3,14 +3,14 @@ use cw_orch_polytone::Polytone;
 use scripts::helpers::get_deployment_id;
 
 fn main() {
-    let src_chain = ARCHWAY_1;
-    let dst_chain = JUNO_1;
+    let src_chain = PION_1;
+    let dst_chain = XION_TESTNET_1;
     verify_deployment(src_chain, dst_chain).unwrap();
 }
 
 fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Result<()> {
-    pretty_env_logger::init();
     dotenv::dotenv()?;
+    pretty_env_logger::init();
     let rt = Runtime::new()?;
 
     let deployment_id = get_deployment_id(&src_chain, &dst_chain);

@@ -179,9 +179,37 @@
       "stargaze-1-->neutron-1": {
         "polytone:voice": "neutron1ageequk45wdfcjufqa5zj5ce2c9qxrssrn8ndgft7kfa7wk2arxscp9chd"
       }
+    },
+    "pion-1": {
+      "code_ids": {
+        "polytone:note": 4540,
+        "polytone:proxy": 4542,
+        "polytone:voice": 4541
+      },
+      "default": {},
+      "pion-1-->xion-testnet-1": {
+        "polytone:note": "neutron1uhlcjl3j70zsy2r5d460g5uc5qyg42p6fpm7srwtmpw8drse9huspyv8r4"
+      },
+      "xion-testnet-1-->pion-1": {
+        "polytone:voice": "neutron1s057u4g6tc649hdw6kqmh85cjw3ekx8eyv3v9cven88zv8ewtlqqgmpt26"
+      }
     }
   },
   "osmosis": {
+    "osmo-test-5": {
+      "code_ids": {
+        "polytone:note": 8078,
+        "polytone:proxy": 8080,
+        "polytone:voice": 8079
+      },
+      "default": {},
+      "osmo-test-5-->xion-testnet-1": {
+        "polytone:note": "osmo1v4x2qldfj92hghpvka9yjzan4y6z9dp7ezrzt9v9xqc3pzyz75esvftan2"
+      },
+      "xion-testnet-1-->osmo-test-5": {
+        "polytone:voice": "osmo19kk4505laut7ra570932d307gm3xv9d5z89fqaksy56mlzwjd3eqn5d9y6"
+      }
+    },
     "osmosis-1": {
       "archway-1-->osmosis-1": {
         "polytone:voice": "osmo1kju3qsgcfwfuhqdrwm623xrf7hn3lmp2scaznxn75r3mlv36x4xsc7lnz2"
@@ -302,6 +330,28 @@
       },
       "phoenix-1-->osmosis-1": {
         "polytone:note": "terra1wjjnesand5yc3tr6cwy8a9ska6ug0jty8le7c67qzehphvqkq9jsc0kld5"
+      }
+    }
+  },
+  "xion": {
+    "xion-testnet-1": {
+      "code_ids": {
+        "polytone:note": 510,
+        "polytone:proxy": 512,
+        "polytone:voice": 511
+      },
+      "default": {},
+      "osmo-test-5-->xion-testnet-1": {
+        "polytone:voice": "xion17dnqgzrd8cq6sph4gmdx4phg47agzkd2mna34hm0xpcumewx0v4s57xhtu"
+      },
+      "pion-1-->xion-testnet-1": {
+        "polytone:voice": "xion1ju236dlcrejqqhv8gy40jne94wxz6qafllsydgkhd5fzcaurm8dql58unf"
+      },
+      "xion-testnet-1-->osmo-test-5": {
+        "polytone:note": "xion1865cwl52qzfrcgrzyswxdqhlyuqpyamppr5evj9ja2zy7at8gd6s4u7kd2"
+      },
+      "xion-testnet-1-->pion-1": {
+        "polytone:note": "xion150s3sev86v0lr0qn4s0k8xtzvfm42jvnc26wktky0ypsf2txeqps2gs6kn"
       }
     }
   }
