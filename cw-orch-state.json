@@ -42,6 +42,14 @@
       "stargaze-1-->archway-1": {
         "polytone:voice": "archway1hd4s3z4ga7f26eae4p44mp70dvr5my39d7l2qrh2hrl74jsv22dquc6h63"
       }
+    },
+    "constantine-3": {
+      "code_ids": {
+        "polytone:note": 2636,
+        "polytone:proxy": 2638,
+        "polytone:voice": 2637
+      },
+      "default": {}
     }
   },
   "juno": {
@@ -94,6 +102,20 @@
     }
   },
   "kujira": {
+    "harpoon-4": {
+      "code_ids": {
+        "polytone:note": 3482,
+        "polytone:proxy": 3484,
+        "polytone:voice": 3483
+      },
+      "default": {},
+      "harpoon-4-->pion-1": {
+        "polytone:note": "kujira1f0yr5mtg38w0p760924f5qsdzvd4584hjm2xvnzx3k6885qttgns37pfhk"
+      },
+      "pion-1-->harpoon-4": {
+        "polytone:voice": "kujira1t6j8xqqmytp2ye5lg3wa09sa7fp5zvgtf8cen6ru77a8wfqpuf9q5lw6wf"
+      }
+    },
     "kaiyo-1": {
       "archway-1-->kaiyo-1": {
         "polytone:voice": "kujira1xgrswwqadqgeaxejsy5gcpw0dlx8z6wzyavu07n5w5tvnl2k5ucqt93myv"
@@ -187,6 +209,12 @@
         "polytone:voice": 4541
       },
       "default": {},
+      "harpoon-4-->pion-1": {
+        "polytone:voice": "neutron1ktyrnqw7uf7v4d3c3x7vrsrrgw449ncecrue2ptaqn0l2yjpm5mqt0dv7x"
+      },
+      "pion-1-->harpoon-4": {
+        "polytone:note": "neutron136k8kgtydz69vuxh28ncaz4y5ycha4xvfwmw39eseh5kt3e86cvs2w7mww"
+      },
       "pion-1-->xion-testnet-1": {
         "polytone:note": "neutron1uhlcjl3j70zsy2r5d460g5uc5qyg42p6fpm7srwtmpw8drse9huspyv8r4"
       },
