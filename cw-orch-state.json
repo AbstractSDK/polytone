@@ -216,10 +216,10 @@
         "polytone:note": "neutron136k8kgtydz69vuxh28ncaz4y5ycha4xvfwmw39eseh5kt3e86cvs2w7mww"
       },
       "pion-1-->xion-testnet-1": {
-        "polytone:note": "neutron1uhlcjl3j70zsy2r5d460g5uc5qyg42p6fpm7srwtmpw8drse9huspyv8r4"
+        "polytone:note": "neutron19mzewj7nhrylkn5wtgel6v2ukje098v3ulkljtkafpn5hjelednsfeewug"
       },
       "xion-testnet-1-->pion-1": {
-        "polytone:voice": "neutron1s057u4g6tc649hdw6kqmh85cjw3ekx8eyv3v9cven88zv8ewtlqqgmpt26"
+        "polytone:voice": "neutron1zl8l8lzyqr2uxrctwajcchgfps7x6aq0fdtczwkyzxp66aueyz2qu6f0q4"
       }
     }
   },
@@ -373,13 +373,13 @@
         "polytone:voice": "xion17dnqgzrd8cq6sph4gmdx4phg47agzkd2mna34hm0xpcumewx0v4s57xhtu"
       },
       "pion-1-->xion-testnet-1": {
-        "polytone:voice": "xion1ju236dlcrejqqhv8gy40jne94wxz6qafllsydgkhd5fzcaurm8dql58unf"
+        "polytone:voice": "xion1hakcf4p6h0urj7nkznm3qvfstdtcw5hsfff2vkzys8fwqw7688vqex5x6w"
       },
       "xion-testnet-1-->osmo-test-5": {
         "polytone:note": "xion1865cwl52qzfrcgrzyswxdqhlyuqpyamppr5evj9ja2zy7at8gd6s4u7kd2"
       },
       "xion-testnet-1-->pion-1": {
-        "polytone:note": "xion150s3sev86v0lr0qn4s0k8xtzvfm42jvnc26wktky0ypsf2txeqps2gs6kn"
+        "polytone:note": "xion18eh7m9wdk493y47l0uwc3nqkkxd4qvnsd9t8z80heatyw7j6dd9qdghjsa"
       }
     }
   }
