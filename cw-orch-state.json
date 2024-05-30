@@ -98,6 +98,12 @@
         "polytone:note": 2517,
         "polytone:proxy": 2518,
         "polytone:voice": 2520
+      },
+      "pion-1-->uni-6": {
+        "polytone:voice": "juno10sgs8lca6pejrup53w8pwwfwynerx8lv6p2djly7jdagcnjg8tpstj7sw6"
+      },
+      "uni-6-->pion-1": {
+        "polytone:note": "juno1jjvhefnmwgw53qpm66uevut4rqdjehx7xjhkgg9q6nt90velrcxq29czjg"
       }
     }
   },
@@ -215,8 +221,14 @@
       "pion-1-->harpoon-4": {
         "polytone:note": "neutron136k8kgtydz69vuxh28ncaz4y5ycha4xvfwmw39eseh5kt3e86cvs2w7mww"
       },
+      "pion-1-->uni-6": {
+        "polytone:note": "neutron1vmwglwdelzh80kuasukd9v4s4cdxzpqy83hej35wg3gca4xcs9sq6nk5wx"
+      },
       "pion-1-->xion-testnet-1": {
         "polytone:note": "neutron19mzewj7nhrylkn5wtgel6v2ukje098v3ulkljtkafpn5hjelednsfeewug"
+      },
+      "uni-6-->pion-1": {
+        "polytone:voice": "neutron1k6tcga9aka7dtcyza39fu50n8f6tz9wmv4uawm8tad2a34ahjchs0whe95"
       },
       "xion-testnet-1-->pion-1": {
         "polytone:voice": "neutron1zl8l8lzyqr2uxrctwajcchgfps7x6aq0fdtczwkyzxp66aueyz2qu6f0q4"
