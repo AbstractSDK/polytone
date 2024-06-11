@@ -32,7 +32,7 @@ fn instantiate_two_chains(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow:
         &ChannelCreationValidator,
     );
 
-    src_polytone.connect(&dst_polytone, interchain)?;
+    src_polytone.connect(&dst_polytone, &interchain)?;
 
     Ok(())
 }

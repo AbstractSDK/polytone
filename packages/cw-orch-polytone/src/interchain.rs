@@ -56,7 +56,7 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
 
 impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
     pub fn deploy_between(
-        interchain: impl InterchainEnv<Chain>,
+        interchain: &impl InterchainEnv<Chain>,
         src_chain_id: String,
         dst_chain_id: &str,
     ) -> Result<Self, InterchainError> {
@@ -69,7 +69,7 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
     }
 
     pub fn deploy_between_if_needed(
-        interchain: impl InterchainEnv<Chain>,
+        interchain: &impl InterchainEnv<Chain>,
         src_chain_id: String,
         dst_chain_id: &str,
     ) -> Result<Self, InterchainError> {

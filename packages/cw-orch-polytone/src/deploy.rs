@@ -121,7 +121,7 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
     pub fn connect(
         &self,
         dst: &Polytone<Chain>,
-        interchain: impl InterchainEnv<Chain>,
+        interchain: &impl InterchainEnv<Chain>,
     ) -> Result<PolytoneConnection<Chain>, InterchainError> {
         // We create a channel between the 2 polytone instances
 
