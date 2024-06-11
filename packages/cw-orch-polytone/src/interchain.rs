@@ -1,5 +1,6 @@
 use cosmwasm_std::CosmosMsg;
 use cw_orch::prelude::*;
+use cw_orch_interchain::{IbcQueryHandler, InterchainEnv, InterchainError};
 use polytone_note::msg::ExecuteMsgFns;
 
 use crate::{
@@ -50,5 +51,34 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
 
     pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
         self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
+    }
+}
+
+impl<Chain: CwEnv + IbcQueryHandler> PolytoneConnection<Chain> {
+    pub fn deploy_between(
+        interchain: impl InterchainEnv<Chain>,
+        src_chain_id: String,
+        dst_chain_id: &str,
+    ) -> Result<Self, InterchainError> {
+        let src_chain = interchain.chain(src_chain_id).map_err(Into::into)?;
+        let dst_chain = interchain.chain(dst_chain_id).map_err(Into::into)?;
+        let src_polytone = Polytone::store_on(src_chain)?;
+        let dst_polytone = Polytone::store_on(dst_chain)?;
+
+        src_polytone.connect(&dst_polytone, interchain)
+    }
+
+    pub fn deploy_between_if_needed(
+        interchain: impl InterchainEnv<Chain>,
+        src_chain_id: String,
+        dst_chain_id: &str,
+    ) -> Result<Self, InterchainError> {
+        let src_chain = interchain.chain(src_chain_id).map_err(Into::into)?;
+        let dst_chain = interchain.chain(dst_chain_id).map_err(Into::into)?;
+
+        let src_polytone = Polytone::store_if_needed(src_chain)?;
+        let dst_polytone = Polytone::store_if_needed(dst_chain)?;
+
+        src_polytone.connect(&dst_polytone, interchain)
     }
 }

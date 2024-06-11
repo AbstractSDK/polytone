@@ -73,6 +73,16 @@ impl<Chain: CwEnv> Polytone<Chain> {
         Polytone { note, voice, proxy }
     }
 
+    pub fn store_if_needed(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
+        let polytone = Polytone::new(chain);
+
+        polytone.note.upload_if_needed()?;
+        polytone.voice.upload_if_needed()?;
+        polytone.proxy.upload_if_needed()?;
+
+        Ok(polytone)
+    }
+
     pub(crate) fn instantiate_note(
         &self,
         admin: Option<String>,
