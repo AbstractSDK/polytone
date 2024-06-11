@@ -214,7 +214,11 @@
         "polytone:proxy": 4542,
         "polytone:voice": 4541
       },
-      "default": {},
+      "default": {
+        "polytone:note": "no-address-registered",
+        "polytone:voice": "no-address-registered",
+        "polytone:voice:xion-testnet-1-->pion-1": "neutron18pfu6raeczcz0hggzaqp2katawv6ssee0lsxnwmnzcus0gsumexsq8qf5z"
+      },
       "harpoon-4-->pion-1": {
         "polytone:voice": "neutron1ktyrnqw7uf7v4d3c3x7vrsrrgw449ncecrue2ptaqn0l2yjpm5mqt0dv7x"
       },
@@ -392,7 +396,11 @@
         "polytone:proxy": 512,
         "polytone:voice": 511
       },
-      "default": {},
+      "default": {
+        "polytone:note": "no-address-registered",
+        "polytone:note:xion-testnet-1-->pion-1": "xion1609sw7cy07tg5hxxrs4fdp8dq5mzt6680kn48jy0gemaxt9dxtgsp4skkg",
+        "polytone:voice": "no-address-registered"
+      },
       "osmo-test-5-->xion-testnet-1": {
         "polytone:voice": "xion17dnqgzrd8cq6sph4gmdx4phg47agzkd2mna34hm0xpcumewx0v4s57xhtu"
       },

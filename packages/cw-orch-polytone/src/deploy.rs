@@ -1,11 +1,10 @@
 use std::path::PathBuf;
 
 use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
-use cosmwasm_std::{CosmosMsg, IbcOrder};
+use cosmwasm_std::IbcOrder;
 use cw_orch::prelude::*;
 use cw_orch_interchain::InterchainError;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
-use polytone_note::msg::ExecuteMsgFns;
 
 use crate::Polytone;
 
@@ -106,10 +105,6 @@ impl<Chain: CwEnv> Polytone<Chain> {
         self.instantiate_note(admin.clone())?;
         self.instantiate_voice(admin)?;
         Ok(())
-    }
-
-    pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
-        self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
     }
 }
 impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {

@@ -1,4 +1,6 @@
+use cosmwasm_std::CosmosMsg;
 use cw_orch::prelude::*;
+use polytone_note::msg::ExecuteMsgFns;
 
 use crate::{
     deploy::{POLYTONE_NOTE, POLYTONE_PROXY, POLYTONE_VOICE},
@@ -42,7 +44,13 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
         Ok(connection)
     }
 
-    pub fn connection_suffix(&self) {}
+    pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
+        self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
+    }
+
+    pub fn connection_suffix(&self) -> String {
+        connection_suffix(self.note.get_chain(), self.voice.get_chain())
+    }
 }
 
 pub fn connection_suffix<Chain: CwEnv>(src_chain: &Chain, dst_chain: &Chain) -> String {

@@ -1,10 +1,9 @@
 use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_interchain::prelude::*;
-use cw_orch_polytone::Polytone;
-use scripts::helpers::get_deployment_id;
+use cw_orch_polytone::interchain::PolytoneConnection;
 fn main() {
-    let src_chain = PION_1;
-    let dst_chain = XION_TESTNET_1;
+    let src_chain = XION_TESTNET_1;
+    let dst_chain = PION_1;
     verify_deployment(src_chain, dst_chain).unwrap();
 }
 
@@ -13,21 +12,13 @@ fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Resu
     pretty_env_logger::init();
     let rt = Runtime::new()?;
 
-    let deployment_id = get_deployment_id(&src_chain, &dst_chain);
-    let src_daemon = DaemonBuilder::default()
-        .chain(src_chain.clone())
-        .deployment_id(deployment_id.clone())
-        .handle(rt.handle())
-        .build()?;
-    let dst_daemon = DaemonBuilder::default()
-        .chain(dst_chain.clone())
-        .deployment_id(deployment_id.clone())
-        .handle(rt.handle())
-        .build()?;
-    let src_polytone = Polytone::load_from(src_daemon.clone())?;
+    let src_daemon = DaemonBuilder::default().chain(src_chain.clone()).build()?;
+    let dst_daemon = DaemonBuilder::default().chain(dst_chain.clone()).build()?;
+
+    let polytone_connection = PolytoneConnection::load_from(src_daemon.clone(), dst_daemon.clone());
 
     // We send an empty message on the note side
-    let tx_response = src_polytone.send_message(vec![])?;
+    let tx_response = polytone_connection.send_message(vec![])?;
 
     let interchain = DaemonInterchainEnv::from_daemons(
         rt.handle(),
