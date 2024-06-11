@@ -6,6 +6,7 @@ pub use proxy::PolytoneProxy;
 pub use voice::PolytoneVoice;
 
 pub mod deploy;
+pub mod interchain;
 
 #[derive(Clone)]
 pub struct Polytone<Chain: cw_orch::prelude::CwEnv> {

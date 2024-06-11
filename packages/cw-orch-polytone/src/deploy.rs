@@ -1,8 +1,10 @@
 use std::path::PathBuf;
 
-use crate::{PolytoneNote, PolytoneProxy, PolytoneVoice};
-use cosmwasm_std::CosmosMsg;
+use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
+use cosmwasm_std::{CosmosMsg, IbcOrder};
 use cw_orch::prelude::*;
+use cw_orch_interchain::InterchainError;
+use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
 use polytone_note::msg::ExecuteMsgFns;
 
 use crate::Polytone;
@@ -16,7 +18,7 @@ pub const MAX_BLOCK_GAS: u64 = 100_000_000;
 impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
     type Error = CwOrchError;
 
-    type DeployData = Option<String>;
+    type DeployData = Empty;
 
     fn store_on(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
         let polytone = Polytone::new(chain);
@@ -28,12 +30,9 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
         Ok(polytone)
     }
 
-    fn deploy_on(chain: Chain, data: Self::DeployData) -> Result<Self, CwOrchError> {
-        // upload
+    fn deploy_on(chain: Chain, _data: Self::DeployData) -> Result<Self, CwOrchError> {
+        // Deployment of Polytone is simply uploading the contracts
         let deployment = Self::store_on(chain.clone())?;
-
-        deployment.instantiate_note(data.clone())?;
-        deployment.instantiate_voice(data)?;
 
         Ok(deployment)
     }
@@ -75,7 +74,10 @@ impl<Chain: CwEnv> Polytone<Chain> {
         Polytone { note, voice, proxy }
     }
 
-    pub fn instantiate_note(&self, admin: Option<String>) -> Result<Chain::Response, CwOrchError> {
+    pub(crate) fn instantiate_note(
+        &self,
+        admin: Option<String>,
+    ) -> Result<Chain::Response, CwOrchError> {
         self.note.instantiate(
             &polytone_note::msg::InstantiateMsg {
                 pair: None,
@@ -86,7 +88,10 @@ impl<Chain: CwEnv> Polytone<Chain> {
         )
     }
 
-    pub fn instantiate_voice(&self, admin: Option<String>) -> Result<Chain::Response, CwOrchError> {
+    pub(crate) fn instantiate_voice(
+        &self,
+        admin: Option<String>,
+    ) -> Result<Chain::Response, CwOrchError> {
         self.voice.instantiate(
             &polytone_voice::msg::InstantiateMsg {
                 proxy_code_id: self.proxy.code_id()?.into(),
@@ -97,7 +102,44 @@ impl<Chain: CwEnv> Polytone<Chain> {
         )
     }
 
+    pub(crate) fn instantiate(&self, admin: Option<String>) -> Result<(), CwOrchError> {
+        self.instantiate_note(admin.clone())?;
+        self.instantiate_voice(admin)?;
+        Ok(())
+    }
+
     pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
         self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
+    }
+}
+impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
+    pub fn connect(
+        &self,
+        dst: &Polytone<Chain>,
+        interchain: impl InterchainEnv<Chain>,
+    ) -> Result<PolytoneConnection<Chain>, InterchainError> {
+        // We create a channel between the 2 polytone instances
+
+        self.instantiate(None)?;
+        dst.instantiate(None)?;
+
+        interchain.create_contract_channel(
+            &self.note,
+            &dst.voice,
+            "polytone-1",
+            Some(IbcOrder::Unordered),
+        )?;
+
+        let polytone_connection = PolytoneConnection::load_from_deployment(self, dst)?;
+
+        let no_addr = Addr::unchecked("no-address-registered");
+
+        // We reset the state, this object shouldn't have registered addresses in a normal flow
+        self.note.set_address(&no_addr);
+        self.voice.set_address(&no_addr);
+        dst.note.set_address(&no_addr);
+        dst.voice.set_address(&no_addr);
+
+        Ok(polytone_connection)
     }
 }

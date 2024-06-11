@@ -1,7 +1,7 @@
 use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
+use cw_orch_interchain::prelude::*;
 use cw_orch_polytone::Polytone;
 use scripts::helpers::get_deployment_id;
-
 fn main() {
     let src_chain = PION_1;
     let dst_chain = XION_TESTNET_1;
@@ -35,7 +35,7 @@ fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Resu
         &ChannelCreationValidator,
     );
 
-    interchain.wait_ibc(src_chain.chain_id, tx_response)?;
+    interchain.check_ibc(src_chain.chain_id, tx_response)?;
 
     Ok(())
 }
