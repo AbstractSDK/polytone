@@ -1,6 +1,6 @@
 use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_interchain::prelude::*;
-use cw_orch_polytone::interchain::PolytoneConnection;
+use cw_orch_polytone::{deploy::POLYTONE_NOTE, interchain::PolytoneConnection, PolytoneNote};
 fn main() {
     let src_chain = XION_TESTNET_1;
     let dst_chain = PION_1;

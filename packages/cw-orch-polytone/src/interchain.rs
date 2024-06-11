@@ -19,11 +19,15 @@ pub struct PolytoneConnection<Chain: CwEnv> {
 
 impl<Chain: CwEnv> PolytoneConnection<Chain> {
     pub fn load_from(src_chain: Chain, dst_chain: Chain) -> PolytoneConnection<Chain> {
-        let suffix = connection_suffix(&src_chain, &dst_chain);
-
         PolytoneConnection {
-            note: PolytoneNote::new(format!("{}:{}", POLYTONE_NOTE, suffix), src_chain),
-            voice: PolytoneVoice::new(format!("{}:{}", POLYTONE_VOICE, suffix), dst_chain.clone()),
+            note: PolytoneNote::new(
+                format!("{} | {}", POLYTONE_NOTE, dst_chain.env_info().chain_id),
+                src_chain.clone(),
+            ),
+            voice: PolytoneVoice::new(
+                format!("{} | {}", POLYTONE_VOICE, src_chain.env_info().chain_id),
+                dst_chain.clone(),
+            ),
             // Proxy doesn't have a specific address in deployments, so we don't load a specific suffixed proxy
             proxy: PolytoneProxy::new(POLYTONE_PROXY, dst_chain),
         }
@@ -47,16 +51,4 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
     pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
         self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
     }
-
-    pub fn connection_suffix(&self) -> String {
-        connection_suffix(self.note.get_chain(), self.voice.get_chain())
-    }
-}
-
-pub fn connection_suffix<Chain: CwEnv>(src_chain: &Chain, dst_chain: &Chain) -> String {
-    format!(
-        "{}-->{}",
-        src_chain.env_info().chain_id,
-        dst_chain.env_info().chain_id,
-    )
 }
