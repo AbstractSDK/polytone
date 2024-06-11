@@ -54,7 +54,7 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
     }
 }
 
-impl<Chain: CwEnv + IbcQueryHandler> PolytoneConnection<Chain> {
+impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
     pub fn deploy_between(
         interchain: impl InterchainEnv<Chain>,
         src_chain_id: String,
