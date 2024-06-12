@@ -786,9 +786,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch"
-version = "0.22.0"
+version = "0.23.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ab0efd28ea15c6d2a12736379c67b97118268b8b1c227483b315286a182da12"
+checksum = "97c76d9dd1c2632359f964e3531e5d0833d9022ae9fb216ce9aaaf36070d8bdf"
 dependencies = [
  "anyhow",
  "cosmrs",
@@ -811,9 +811,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-contract-derive"
-version = "0.20.1"
+version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94e9c3e46e2511c26d07da1fb5fcb47f83fa6d169dbb6eeff42c1b899b849726"
+checksum = "5bc8ba75692fc7bd30e91c78fad2dc208a738e4e6ea26b232f9352c320e35543"
 dependencies = [
  "convert_case",
  "quote",
@@ -822,14 +822,15 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-core"
-version = "1.0.0"
+version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c8e62b4d04699596bc2f45c57a8e5459495584d8127588ae4bbe7f95d616b61"
+checksum = "962bbfcf52f0ef79c66c19b6a4610fc405313b74af8fa51b6a7e396b7b2eaeff"
 dependencies = [
  "abstract-cw-multi-test",
  "anyhow",
  "cosmos-sdk-proto 0.21.1",
  "cosmwasm-std",
+ "cw-storage-plus",
  "cw-utils",
  "dirs",
  "log",
@@ -841,9 +842,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-daemon"
-version = "0.22.1"
+version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "495e43e9a64b9ed0d6808e0f0170590b282f9606227b8b2a55492d2b054c42b4"
+checksum = "bb96bc777cbe13110a225f903fba92da7a7e5171ff15a66fd5d9ab4e3ab1fbea"
 dependencies = [
  "anyhow",
  "async-recursion",
@@ -859,14 +860,17 @@ dependencies = [
  "dirs",
  "ed25519-dalek",
  "eyre",
+ "file-lock",
  "flate2",
  "hex",
  "hkd32",
  "lazy_static",
  "log",
+ "once_cell",
  "prost 0.12.6",
  "prost-types 0.12.4",
  "rand_core 0.6.4",
+ "regex",
  "reqwest",
  "ring 0.17.8",
  "ripemd",
@@ -881,9 +885,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-fns-derive"
-version = "0.18.1"
+version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6423cd853c9a4aa07cc0a92a179b99bd8f8f6c696a468e3ca2ecd2575905db21"
+checksum = "67bd0a41e97819cee77efeeee0aa82bc0b029a9cb7a5a4b47de0c87f1bf69802"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -893,9 +897,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2fcf7defbb524e4db4fafd920732de1a7a9ef467b28116223b1e153971e5955"
+checksum = "0d82427b6f73d29b2eef5018ee5540a1a92ecfdad0ba62c474ed45ea3d7c09fa"
 dependencies = [
  "cosmwasm-std",
  "cw-orch-interchain-core",
@@ -909,9 +913,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-core"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5fb6307b8335bd4f36f7d2d249baa84887e7d26d238b4c3ae1694bcb32274456"
+checksum = "76035a6283a342de75c810d3ff0976aeed4cc7e3094da202d0a9ec53740352a4"
 dependencies = [
  "base64 0.21.7",
  "cosmwasm-schema",
@@ -932,9 +936,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-daemon"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "df825544b456d9420386ec66e9cc322792867e72bcf8e7c0a3c4fed10c55e934"
+checksum = "ca44d6d0b89990139b9165395cabe9c233301ea14a197d4942f247b9662fb648"
 dependencies = [
  "async-recursion",
  "base64 0.21.7",
@@ -961,9 +965,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-mock"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e2042d10d65038139d8c2f0a1010ae050b67a43da9b6ee4f4fc2936b2d998b36"
+checksum = "ffb52c31f9436958562a6256f385dabde9898484dd12d25eda202e8f35c462ea"
 dependencies = [
  "anyhow",
  "cosmrs",
@@ -1006,9 +1010,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-starship"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd9cdaf2e16e09ea97942e3290bf055884852d77d0358c0b14b5a083ce5482b1"
+checksum = "9445d595a021c0935042454d1b09d2330eea7882674f719cd56b7becbacb0aba"
 dependencies = [
  "cosmwasm-std",
  "cw-orch-core",
@@ -1576,6 +1580,16 @@ name = "fiat-crypto"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28dea519a9695b9977216879a3ebfddf92f1c08c05d984f8996aecd6ecdc811d"
+
+[[package]]
+name = "file-lock"
+version = "2.1.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "040b48f80a749da50292d0f47a1e2d5bf1d772f52836c07f64bfccc62ba6e664"
+dependencies = [
+ "cc",
+ "libc",
+]
 
 [[package]]
 name = "fixed-hash"

@@ -34,23 +34,8 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
         }
     }
 
-    pub(crate) fn load_from_deployment(
-        src_polytone: &Polytone<Chain>,
-        dst_polytone: &Polytone<Chain>,
-    ) -> Result<PolytoneConnection<Chain>, CwOrchError> {
-        let connection = Self::load_from(
-            src_polytone.note.get_chain().clone(),
-            dst_polytone.voice.get_chain().clone(),
-        );
-
-        connection.note.set_address(&src_polytone.note.address()?);
-        connection.voice.set_address(&dst_polytone.voice.address()?);
-
-        Ok(connection)
-    }
-
     pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
-        self.note.ibc_execute(msgs, 1_000_000u64.into(), None)
+        self.note.ibc_execute(msgs, 1_000_000u64, None)
     }
 }
 
@@ -79,6 +64,6 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
         let src_polytone = Polytone::store_if_needed(src_chain)?;
         let dst_polytone = Polytone::store_if_needed(dst_chain)?;
 
-        src_polytone.connect(&dst_polytone, interchain)
+        src_polytone.connect_if_needed(&dst_polytone, interchain)
     }
 }

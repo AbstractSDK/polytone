@@ -52,7 +52,7 @@ pub fn check_one_chain_admin(daemon: &Daemon) -> anyhow::Result<()> {
         .values()
         .map(|a| {
             let contract_info = daemon.rt_handle.block_on(wasm._contract_info(a))?;
-            if !contract_info.admin.is_empty() {
+            if contract_info.admin.is_some() {
                 bail!("{:?} admin is non empty", a);
             }
 
