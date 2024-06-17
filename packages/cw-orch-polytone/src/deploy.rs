@@ -1,7 +1,9 @@
+use std::fs::File;
 use std::path::PathBuf;
 
 use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cosmwasm_std::IbcOrder;
+use cw_orch::core::serde_json::{self, from_reader, Value};
 use cw_orch::prelude::*;
 use cw_orch_interchain::InterchainError;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
@@ -74,13 +76,57 @@ impl<Chain: CwEnv> Polytone<Chain> {
     }
 
     pub fn store_if_needed(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
-        let polytone = Polytone::new(chain);
+        let mut polytone = Polytone::new(chain);
+        polytone.set_code_ids_state(None);
+        // We set the code ids that are registered in the crate state file
 
         polytone.note.upload_if_needed()?;
         polytone.voice.upload_if_needed()?;
         polytone.proxy.upload_if_needed()?;
 
         Ok(polytone)
+    }
+
+    fn set_code_ids_state(&mut self, custom_state: Option<Value>) {
+        let state;
+
+        let state_file = Self::deployed_state_file_path();
+        if let Some(custom_state) = custom_state {
+            state = custom_state;
+        } else if let Some(state_file) = state_file {
+            if let Ok(module_state_json) = read_json(&state_file) {
+                state = module_state_json;
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+
+        let all_contracts = self.get_contracts_mut();
+
+        for contract in all_contracts {
+            // We set the code_id and/or address of the contract in question if they are not present already
+            let env_info = contract.get_chain().env_info();
+            // We load the file
+            // We try to get the code_id for the contract
+            if contract.code_id().is_err() {
+                let code_id = state
+                    .get(env_info.chain_name.clone())
+                    .unwrap_or(&Value::Null)
+                    .get(env_info.chain_id.to_string())
+                    .unwrap_or(&Value::Null)
+                    .get("code_ids")
+                    .unwrap_or(&Value::Null)
+                    .get(contract.id());
+
+                if let Some(code_id) = code_id {
+                    if code_id.is_u64() {
+                        contract.set_default_code_id(code_id.as_u64().unwrap())
+                    }
+                }
+            }
+        }
     }
 
     pub(crate) fn instantiate_note(
@@ -161,4 +207,11 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
 
         self.connect(dst, interchain)
     }
+}
+
+/// Read a json value from a file (redundant with crate::daemon::json_file, but returns an err instead of panicking)
+pub(crate) fn read_json(filename: &String) -> cw_orch::anyhow::Result<Value> {
+    let file = File::open(filename)?;
+    let json: serde_json::Value = from_reader(file)?;
+    Ok(json)
 }
