@@ -3453,7 +3453,6 @@ dependencies = [
  "cw-orch",
  "cw-orch-interchain",
  "dotenv",
- "ibc-relayer-types",
  "log",
  "pretty_env_logger",
 ]
