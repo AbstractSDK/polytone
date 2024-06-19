@@ -1,3 +1,4 @@
+use cw_orch::environment::ChainState;
 use cw_orch::{prelude::networks::*, prelude::*, tokio::runtime::Runtime};
 use cw_orch_interchain::prelude::*;
 use cw_orch_polytone::interchain::PolytoneConnection;
@@ -13,7 +14,10 @@ fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Resu
     let rt = Runtime::new()?;
 
     let src_daemon = DaemonBuilder::default().chain(src_chain.clone()).build()?;
-    let dst_daemon = DaemonBuilder::default().chain(dst_chain.clone()).build()?;
+    let dst_daemon = DaemonBuilder::default()
+        .chain(dst_chain.clone())
+        .state(src_daemon.state())
+        .build()?;
 
     let polytone_connection = PolytoneConnection::load_from(src_daemon.clone(), dst_daemon.clone());
 
