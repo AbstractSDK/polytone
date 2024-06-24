@@ -821,8 +821,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-core"
-version = "1.1.1"
-source = "git+https://github.com/abstractsdk/cw-orchestrator?branch=fix/upload-if-needed-fail#7deee055c591b86fadf9f96b574f8516bc092c53"
+version = "1.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b60b3a78e06f38cc7d23127489f356b357d795df8c62090bc66c759f875cbc5f"
 dependencies = [
  "abstract-cw-multi-test",
  "anyhow",
@@ -3674,9 +3675,9 @@ checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
 
 [[package]]
 name = "subtle"
-version = "2.6.0"
+version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0d0208408ba0c3df17ed26eb06992cb1a1268d41b2c0e12e65203fbe3972cee5"
+checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 
 [[package]]
 name = "subtle-encoding"

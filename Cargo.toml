@@ -52,6 +52,3 @@ cw-orch-interchain = { version = "0.2.0" }
 
 cw-multi-test = "0.16.2"
 anyhow = { version = "1.0.51" }
-
-[patch.crates-io]
-cw-orch-core = { git = "https://github.com/abstractsdk/cw-orchestrator", branch = "fix/upload-if-needed-fail" }
