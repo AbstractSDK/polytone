@@ -49,45 +49,15 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
     }
 
     fn load_from(chain: Chain) -> Result<Self, Self::Error> {
+        // This only loads the code-ids, because this structure only holds Polytone Code Ids
         let mut polytone = Self::new(chain);
-        // We register all the contracts default state
+        // We register all the code_id default state
         polytone.set_contracts_state(None);
         Ok(polytone)
     }
 
-    fn deployed_state_file_path() -> Option<String> {
-        let crate_path = env!("CARGO_MANIFEST_DIR");
-        Some(
-            PathBuf::from(crate_path)
-                .join("cw-orch-state.json")
-                .display()
-                .to_string(),
-        )
-    }
-}
-
-impl<Chain: CwEnv> Polytone<Chain> {
-    pub fn new(chain: Chain) -> Self {
-        let note = PolytoneNote::new(POLYTONE_NOTE, chain.clone());
-        let voice = PolytoneVoice::new(POLYTONE_VOICE, chain.clone());
-        let proxy = PolytoneProxy::new(POLYTONE_PROXY, chain.clone());
-
-        Polytone { note, voice, proxy }
-    }
-
-    pub fn store_if_needed(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
-        let mut polytone = Polytone::new(chain);
-        polytone.set_code_ids_state(None);
-        // We set the code ids that are registered in the crate state file
-
-        polytone.note.upload_if_needed()?;
-        polytone.voice.upload_if_needed()?;
-        polytone.proxy.upload_if_needed()?;
-
-        Ok(polytone)
-    }
-
-    fn set_code_ids_state(&mut self, custom_state: Option<Value>) {
+    /// This allows loading only the code_ids from the state, because addresses are not relevant for this Structure
+    fn set_contracts_state(&mut self, custom_state: Option<Value>) {
         let state;
 
         let state_file = Self::deployed_state_file_path();
@@ -127,6 +97,36 @@ impl<Chain: CwEnv> Polytone<Chain> {
                 }
             }
         }
+    }
+
+    fn deployed_state_file_path() -> Option<String> {
+        let crate_path = env!("CARGO_MANIFEST_DIR");
+        Some(
+            PathBuf::from(crate_path)
+                .join("cw-orch-state.json")
+                .display()
+                .to_string(),
+        )
+    }
+}
+
+impl<Chain: CwEnv> Polytone<Chain> {
+    pub fn new(chain: Chain) -> Self {
+        let note = PolytoneNote::new(POLYTONE_NOTE, chain.clone());
+        let voice = PolytoneVoice::new(POLYTONE_VOICE, chain.clone());
+        let proxy = PolytoneProxy::new(POLYTONE_PROXY, chain.clone());
+
+        Polytone { note, voice, proxy }
+    }
+
+    pub fn store_if_needed(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
+        let polytone = Polytone::load_from(chain)?;
+
+        polytone.note.upload_if_needed()?;
+        polytone.voice.upload_if_needed()?;
+        polytone.proxy.upload_if_needed()?;
+
+        Ok(polytone)
     }
 
     pub(crate) fn instantiate_note(

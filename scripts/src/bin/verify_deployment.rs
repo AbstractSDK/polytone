@@ -19,16 +19,21 @@ fn verify_deployment(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow::Resu
         .state(src_daemon.state())
         .build()?;
 
-    let polytone_connection = PolytoneConnection::load_from(src_daemon.clone(), dst_daemon.clone());
-
-    // We send an empty message on the note side
-    let tx_response = polytone_connection.send_message(vec![])?;
-
     let interchain = DaemonInterchainEnv::from_daemons(
         rt.handle(),
         vec![src_daemon, dst_daemon],
         &ChannelCreationValidator,
     );
+
+    // let polytone_connection = PolytoneConnection::load_from(src_daemon.clone(), dst_daemon.clone());
+    let polytone_connection = PolytoneConnection::deploy_between_if_needed(
+        &interchain,
+        src_chain.chain_id,
+        dst_chain.chain_id,
+    )?;
+
+    // We send an empty message on the note side
+    let tx_response = polytone_connection.send_message(vec![])?;
 
     interchain.check_ibc(src_chain.chain_id, tx_response)?;
 
