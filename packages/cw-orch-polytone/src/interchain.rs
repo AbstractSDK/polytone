@@ -1,4 +1,4 @@
-use cosmwasm_std::CosmosMsg;
+use cosmwasm_std::{CosmosMsg, Uint64};
 use cw_orch::prelude::*;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv, InterchainError};
 use polytone_note::msg::ExecuteMsgFns;
@@ -35,7 +35,8 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
     }
 
     pub fn send_message(&self, msgs: Vec<CosmosMsg>) -> Result<Chain::Response, CwOrchError> {
-        self.note.ibc_execute(msgs, 1_000_000u64, None)
+        self.note
+            .ibc_execute(msgs, Uint64::from(1_000_000u64), None)
     }
 }
 
