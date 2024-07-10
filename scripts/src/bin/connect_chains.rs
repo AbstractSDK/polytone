@@ -1,7 +1,4 @@
-use cw_orch::{
-    daemon::RUNTIME,
-    prelude::{networks::*, *},
-};
+use cw_orch::prelude::{networks::*, *};
 use cw_orch_interchain::prelude::*;
 use cw_orch_polytone::Polytone;
 /// This stays unsued and is used for reference for channel creation
@@ -20,17 +17,16 @@ fn instantiate_two_chains(src_chain: ChainInfo, dst_chain: ChainInfo) -> anyhow:
     dotenv::dotenv()?;
     pretty_env_logger::init();
 
-    let src_daemon = DaemonBuilder::default().chain(src_chain).build()?;
+    let src_daemon = DaemonBuilder::new(src_chain).build()?;
     let src_polytone = Polytone::load_from(src_daemon.clone())?;
 
-    let dst_daemon = DaemonBuilder::default().chain(dst_chain).build()?;
+    let dst_daemon = DaemonBuilder::new(dst_chain)
+        .state(src_daemon.state())
+        .build()?;
     let dst_polytone = Polytone::load_from(dst_daemon.clone())?;
 
-    let interchain = DaemonInterchainEnv::from_daemons(
-        RUNTIME.handle(),
-        vec![src_daemon, dst_daemon],
-        &ChannelCreationValidator,
-    );
+    let interchain =
+        DaemonInterchainEnv::from_daemons(vec![src_daemon, dst_daemon], &ChannelCreationValidator);
 
     src_polytone.connect(&dst_polytone, &interchain)?;
 

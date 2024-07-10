@@ -42,15 +42,14 @@ fn query_one_pair(
     // We query the src channel
     let deployment_id = get_deployment_id(&src_chain, &dst_chain);
 
-    let src_daemon = Daemon::builder()
-        .chain(src_chain)
+    let src_daemon = Daemon::builder(src_chain)
         .deployment_id(deployment_id.clone())
         .handle(handle)
         .build()?;
 
-    let dst_daemon = Daemon::builder()
-        .chain(dst_chain)
+    let dst_daemon = Daemon::builder(dst_chain)
         .deployment_id(deployment_id.clone())
+        .state(src_daemon.state())
         .handle(handle)
         .build()?;
 

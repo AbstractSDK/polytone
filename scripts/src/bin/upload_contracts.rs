@@ -10,10 +10,7 @@ fn upload_contracts(chain: ChainInfo) -> anyhow::Result<()> {
     dotenv::dotenv()?;
     pretty_env_logger::init();
     let rt = Runtime::new()?;
-    let daemon = DaemonBuilder::default()
-        .chain(chain)
-        .handle(rt.handle())
-        .build()?;
+    let daemon = DaemonBuilder::new(chain).handle(rt.handle()).build()?;
 
     let _polytone = Polytone::store_on(daemon)?;
 

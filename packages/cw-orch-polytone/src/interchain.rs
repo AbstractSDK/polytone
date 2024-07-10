@@ -46,8 +46,8 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
         src_chain_id: &str,
         dst_chain_id: &str,
     ) -> Result<Self, InterchainError> {
-        let src_chain = interchain.chain(src_chain_id).map_err(Into::into)?;
-        let dst_chain = interchain.chain(dst_chain_id).map_err(Into::into)?;
+        let src_chain = interchain.get_chain(src_chain_id).map_err(Into::into)?;
+        let dst_chain = interchain.get_chain(dst_chain_id).map_err(Into::into)?;
         let src_polytone = Polytone::store_on(src_chain)?;
         let dst_polytone = Polytone::store_on(dst_chain)?;
 
@@ -59,8 +59,8 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
         src_chain_id: &str,
         dst_chain_id: &str,
     ) -> Result<Self, InterchainError> {
-        let src_chain = interchain.chain(src_chain_id).map_err(Into::into)?;
-        let dst_chain = interchain.chain(dst_chain_id).map_err(Into::into)?;
+        let src_chain = interchain.get_chain(src_chain_id).map_err(Into::into)?;
+        let dst_chain = interchain.get_chain(dst_chain_id).map_err(Into::into)?;
 
         let src_polytone = Polytone::store_if_needed(src_chain)?;
         let dst_polytone = Polytone::store_if_needed(dst_chain)?;
