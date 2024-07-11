@@ -77,7 +77,7 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
 
         for contract in all_contracts {
             // We set the code_id and/or address of the contract in question if they are not present already
-            let env_info = contract.get_chain().env_info();
+            let env_info = contract.environment().env_info();
             // We load the file
             // We try to get the code_id for the contract
             if contract.code_id().is_err() {
@@ -176,8 +176,8 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
         )?;
 
         let polytone_connection = PolytoneConnection::load_from(
-            self.note.get_chain().clone(),
-            dst.voice.get_chain().clone(),
+            self.note.environment().clone(),
+            dst.voice.environment().clone(),
         );
 
         polytone_connection.note.set_address(&self.note.address()?);
@@ -196,8 +196,8 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
         interchain: &impl InterchainEnv<Chain>,
     ) -> Result<PolytoneConnection<Chain>, InterchainError> {
         let polytone_connection = PolytoneConnection::load_from(
-            self.note.get_chain().clone(),
-            dst.voice.get_chain().clone(),
+            self.note.environment().clone(),
+            dst.voice.environment().clone(),
         );
 
         if polytone_connection.note.address().is_ok() && polytone_connection.voice.address().is_ok()
