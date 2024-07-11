@@ -29,7 +29,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-cw-orch-polytone"
-version = "4.0.0"
+version = "4.0.1"
 dependencies = [
  "abstract-polytone-note",
  "abstract-polytone-proxy",
@@ -52,7 +52,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-note"
-version = "4.0.0"
+version = "3.0.0"
 dependencies = [
  "abstract-polytone",
  "anyhow",
@@ -68,7 +68,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-proxy"
-version = "4.0.0"
+version = "3.0.0"
 dependencies = [
  "abstract-polytone",
  "cosmwasm-schema",
@@ -83,7 +83,7 @@ dependencies = [
 
 [[package]]
 name = "abstract-polytone-voice"
-version = "4.0.0"
+version = "3.0.0"
 dependencies = [
  "abstract-polytone",
  "abstract-polytone-proxy",
