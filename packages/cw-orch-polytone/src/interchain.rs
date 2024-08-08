@@ -8,6 +8,8 @@ use crate::{
     Polytone, PolytoneNote, PolytoneProxy, PolytoneVoice,
 };
 
+pub const DELIMITER: &str = " | ";
+
 /// Represents an Polytone connection
 ///
 /// The note contract is on the local chain while the voice and proxy contracts are located on the remote chain
@@ -22,11 +24,17 @@ impl<Chain: CwEnv> PolytoneConnection<Chain> {
     pub fn load_from(src_chain: Chain, dst_chain: Chain) -> PolytoneConnection<Chain> {
         PolytoneConnection {
             note: PolytoneNote::new(
-                format!("{} | {}", POLYTONE_NOTE, dst_chain.env_info().chain_id),
+                format!(
+                    "{POLYTONE_NOTE}{DELIMITER}{}",
+                    dst_chain.env_info().chain_id
+                ),
                 src_chain.clone(),
             ),
             voice: PolytoneVoice::new(
-                format!("{} | {}", POLYTONE_VOICE, src_chain.env_info().chain_id),
+                format!(
+                    "{POLYTONE_VOICE}{DELIMITER}{}",
+                    src_chain.env_info().chain_id
+                ),
                 dst_chain.clone(),
             ),
             // Proxy doesn't have a specific address in deployments, so we don't load a specific suffixed proxy

@@ -20,3 +20,4 @@ cw-orch-interchain = { workspace = true }
 
 [dev-dependencies]
 anyhow.workspace = true
+cw-orch = { workspace = true, features = ["daemon"] }
