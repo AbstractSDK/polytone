@@ -1,9 +1,9 @@
-use std::fs::File;
 use std::path::PathBuf;
 
+use crate::utils::read_json;
 use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cosmwasm_std::IbcOrder;
-use cw_orch::core::serde_json::{self, from_reader, Value};
+use cw_orch::core::serde_json::Value;
 use cw_orch::prelude::*;
 use cw_orch_interchain::InterchainError;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
@@ -207,11 +207,4 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
 
         self.connect(dst, interchain)
     }
-}
-
-/// Read a json value from a file (redundant with crate::daemon::json_file, but returns an err instead of panicking)
-pub(crate) fn read_json(filename: &String) -> cw_orch::anyhow::Result<Value> {
-    let file = File::open(filename)?;
-    let json: serde_json::Value = from_reader(file)?;
-    Ok(json)
 }

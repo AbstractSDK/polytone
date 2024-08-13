@@ -9,6 +9,8 @@ pub mod deploy;
 pub mod interchain;
 pub use interchain::PolytoneConnection;
 
+pub mod utils;
+
 #[derive(Clone)]
 pub struct Polytone<Chain: cw_orch::prelude::CwEnv> {
     pub note: PolytoneNote<Chain>,
