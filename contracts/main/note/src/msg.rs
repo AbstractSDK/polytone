@@ -28,7 +28,7 @@ pub enum ExecuteMsg {
     /// Performs the requested queries on the voice chain and returns
     /// a callback of Vec<QuerierResult>, or ACK-FAIL if unmarshalling
     /// any of the query requests fails.
-    #[fn_name("ibc_query")]
+    #[cw_orch(fn_name("ibc_query"))]
     Query {
         msgs: Vec<QueryRequest<Empty>>,
         callback: CallbackRequest,
@@ -45,7 +45,7 @@ pub enum ExecuteMsg {
     /// perform no additional actions, pass an empty list to
     /// `msgs`. Accounts are queryable via the `RemoteAddress {
     /// local_address }` query after they have been created.
-    #[fn_name("ibc_execute")]
+    #[cw_orch(fn_name("ibc_execute"))]
     Execute {
         msgs: Vec<CosmosMsg<Empty>>,
         callback: Option<CallbackRequest>,
