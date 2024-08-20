@@ -4,6 +4,7 @@ use crate::utils::read_json;
 use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cosmwasm_std::IbcOrder;
 use cw_orch::core::serde_json::Value;
+use cw_orch::daemon::DeployedChains;
 use cw_orch::prelude::*;
 use cw_orch_interchain::InterchainError;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
@@ -16,46 +17,16 @@ pub const POLYTONE_PROXY: &str = "polytone:proxy";
 
 pub const MAX_BLOCK_GAS: u64 = 100_000_000;
 
-impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
-    type Error = CwOrchError;
-
-    type DeployData = Empty;
-
-    fn store_on(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
-        let polytone = Polytone::new(chain);
-
-        polytone.note.upload()?;
-        polytone.voice.upload()?;
-        polytone.proxy.upload()?;
-
-        Ok(polytone)
+impl<Chain: CwEnv> DeployedChains<Chain> for Polytone<Chain> {
+    fn deployed_state_file_path() -> Option<String> {
+        let crate_path = env!("CARGO_MANIFEST_DIR");
+        Some(
+            PathBuf::from(crate_path)
+                .join("cw-orch-state.json")
+                .display()
+                .to_string(),
+        )
     }
-
-    fn deploy_on(chain: Chain, _data: Self::DeployData) -> Result<Self, CwOrchError> {
-        // Deployment of Polytone is simply uploading the contracts
-        let deployment = Self::store_on(chain.clone())?;
-
-        Ok(deployment)
-    }
-
-    fn get_contracts_mut(
-        &mut self,
-    ) -> Vec<Box<&mut dyn cw_orch::prelude::ContractInstance<Chain>>> {
-        vec![
-            Box::new(&mut self.note),
-            Box::new(&mut self.voice),
-            Box::new(&mut self.proxy),
-        ]
-    }
-
-    fn load_from(chain: Chain) -> Result<Self, Self::Error> {
-        // This only loads the code-ids, because this structure only holds Polytone Code Ids
-        let mut polytone = Self::new(chain);
-        // We register all the code_id default state
-        polytone.set_contracts_state(None);
-        Ok(polytone)
-    }
-
     /// This allows loading only the code_ids from the state, because addresses are not relevant for this Structure
     fn set_contracts_state(&mut self, custom_state: Option<Value>) {
         let state;
@@ -98,15 +69,46 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
             }
         }
     }
+}
 
-    fn deployed_state_file_path() -> Option<String> {
-        let crate_path = env!("CARGO_MANIFEST_DIR");
-        Some(
-            PathBuf::from(crate_path)
-                .join("cw-orch-state.json")
-                .display()
-                .to_string(),
-        )
+impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
+    type Error = CwOrchError;
+
+    type DeployData = Empty;
+
+    fn store_on(chain: Chain) -> Result<Self, <Self as Deploy<Chain>>::Error> {
+        let polytone = Polytone::new(chain);
+
+        polytone.note.upload()?;
+        polytone.voice.upload()?;
+        polytone.proxy.upload()?;
+
+        Ok(polytone)
+    }
+
+    fn deploy_on(chain: Chain, _data: Self::DeployData) -> Result<Self, CwOrchError> {
+        // Deployment of Polytone is simply uploading the contracts
+        let deployment = Self::store_on(chain.clone())?;
+
+        Ok(deployment)
+    }
+
+    fn get_contracts_mut(
+        &mut self,
+    ) -> Vec<Box<&mut dyn cw_orch::prelude::ContractInstance<Chain>>> {
+        vec![
+            Box::new(&mut self.note),
+            Box::new(&mut self.voice),
+            Box::new(&mut self.proxy),
+        ]
+    }
+
+    fn load_from(chain: Chain) -> Result<Self, Self::Error> {
+        // This only loads the code-ids, because this structure only holds Polytone Code Ids
+        let mut polytone = Self::new(chain);
+        // We register all the code_id default state
+        polytone.set_contracts_state(None);
+        Ok(polytone)
     }
 }
 
@@ -139,7 +141,7 @@ impl<Chain: CwEnv> Polytone<Chain> {
                 block_max_gas: MAX_BLOCK_GAS.into(),
             },
             admin.map(Addr::unchecked).as_ref(),
-            None,
+            &[],
         )
     }
 
@@ -153,7 +155,7 @@ impl<Chain: CwEnv> Polytone<Chain> {
                 block_max_gas: MAX_BLOCK_GAS.into(),
             },
             admin.map(Addr::unchecked).as_ref(),
-            None,
+            &[],
         )
     }
 }
