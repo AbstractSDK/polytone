@@ -1,6 +1,7 @@
 use std::{collections::HashMap, fs::File};
 
 use cosmwasm_std::Addr;
+use cw_orch::daemon::DeployedChains;
 use cw_orch::{core::serde_json, prelude::*};
 
 use crate::{
