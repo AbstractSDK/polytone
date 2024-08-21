@@ -963,24 +963,23 @@ dependencies = [
 
 [[package]]
 name = "cosmos-sdk-proto"
-version = "0.22.0"
+version = "0.24.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "57d1a42d9ef55bb4e84b48ce29860f55859e52e0088ebdb1371cedd62f2b78cc"
+checksum = "1d0afc4daf81936e6ef5a2cf76f00c913ba5bc385d58ae1e09644e25d16b0381"
 dependencies = [
- "prost 0.12.6",
- "prost-types 0.12.6",
- "tendermint-proto 0.37.0",
- "tonic 0.11.0",
+ "prost 0.13.1",
+ "tendermint-proto 0.39.1",
+ "tonic 0.12.1",
 ]
 
 [[package]]
 name = "cosmrs"
-version = "0.17.0"
+version = "0.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "85efbd5a3487e52ccd77897ef8f97b077a015953b46623fabc939f39d9c501fc"
+checksum = "af28a0ee4149da7cea0486fd7e3fbddea7dd81625279fdc521141ffb07fbd482"
 dependencies = [
  "bip32",
- "cosmos-sdk-proto 0.22.0",
+ "cosmos-sdk-proto 0.24.0",
  "ecdsa",
  "eyre",
  "k256",
@@ -989,8 +988,8 @@ dependencies = [
  "serde_json",
  "signature",
  "subtle-encoding",
- "tendermint 0.37.0",
- "tendermint-rpc 0.37.0",
+ "tendermint 0.39.1",
+ "tendermint-rpc 0.39.1",
  "thiserror",
  "tokio",
 ]
@@ -1321,7 +1320,8 @@ dependencies = [
 [[package]]
 name = "cw-orch"
 version = "0.25.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2dd6f114ab0301b99ca0d8ba48036b87372ccc3ba0271dcd6f9533e4be578f65"
 dependencies = [
  "anyhow",
  "cosmrs",
@@ -1345,7 +1345,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-contract-derive"
 version = "0.21.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5bc8ba75692fc7bd30e91c78fad2dc208a738e4e6ea26b232f9352c320e35543"
 dependencies = [
  "convert_case",
  "quote",
@@ -1355,11 +1356,12 @@ dependencies = [
 [[package]]
 name = "cw-orch-core"
 version = "2.0.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8a9f5f99f52d7ed7c0f8c84580f2f78a15db9c7f2144d24dd485d9347917b6fa"
 dependencies = [
  "abstract-cw-multi-test",
  "anyhow",
- "cosmos-sdk-proto 0.22.0",
+ "cosmos-sdk-proto 0.24.0",
  "cosmwasm-std 2.1.3",
  "cw-storage-plus 2.0.0",
  "cw-utils",
@@ -1374,7 +1376,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-daemon"
 version = "0.25.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cfe17cbe065101ead45abda1bd6b1a3416803ae9615e6294f5fcb3ca4e67320b"
 dependencies = [
  "anyhow",
  "async-recursion",
@@ -1398,8 +1401,8 @@ dependencies = [
  "lazy_static",
  "log",
  "once_cell",
- "prost 0.12.6",
- "prost-types 0.12.6",
+ "prost 0.13.1",
+ "prost-types 0.13.1",
  "rand_core 0.6.4",
  "reqwest 0.12.7",
  "ring",
@@ -1411,14 +1414,15 @@ dependencies = [
  "thiserror",
  "tokio",
  "toml",
- "tonic 0.11.0",
+ "tonic 0.12.1",
  "uid",
 ]
 
 [[package]]
 name = "cw-orch-fns-derive"
-version = "0.22.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4438fbb77e1fd05b19d47287bdc5b7be73e3875b9acbbceffc9418acd000a8ad"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -1429,7 +1433,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain"
 version = "0.4.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a0245ab88afe7eb507091afb2e7621e42e9979b9a14a1898983c3156be20aa8b"
 dependencies = [
  "cosmwasm-std 2.1.3",
  "cw-orch-interchain-core",
@@ -1445,7 +1450,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-interchain-core"
 version = "0.5.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60fe610359d49f7063a63cba42e2893bbbca045b20a7ee2bc74f0132af45da34"
 dependencies = [
  "base64 0.22.1",
  "cosmwasm-schema 2.1.3",
@@ -1461,13 +1467,14 @@ dependencies = [
  "serde_json",
  "thiserror",
  "tokio",
- "tonic 0.11.0",
+ "tonic 0.12.1",
 ]
 
 [[package]]
 name = "cw-orch-interchain-daemon"
 version = "0.5.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d86766fbb5572ec8edad00844a4375eb1cd00dc3d1af31fbb57d5b99cad49ff5"
 dependencies = [
  "async-recursion",
  "base64 0.22.1",
@@ -1489,13 +1496,14 @@ dependencies = [
  "serde_json",
  "thiserror",
  "tokio",
- "tonic 0.11.0",
+ "tonic 0.12.1",
 ]
 
 [[package]]
 name = "cw-orch-interchain-mock"
 version = "0.5.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b0547c2ed6ba22914fa119bcb792641c67cf9b989314150d06f25742d601403e"
 dependencies = [
  "anyhow",
  "cosmrs",
@@ -1514,7 +1522,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-mock"
 version = "0.24.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f3a7b0d0678a9043e4b4ac489e2bb6350d33acb3c8a6c2a2042145cd72a5a069"
 dependencies = [
  "abstract-cw-multi-test",
  "cosmwasm-std 2.1.3",
@@ -1528,7 +1537,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-networks"
 version = "0.24.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8872f1f293615b38e21b28379fc0675259086725fac17d513c35792eca037a4e"
 dependencies = [
  "cw-orch-core",
  "serde",
@@ -1537,7 +1547,8 @@ dependencies = [
 [[package]]
 name = "cw-orch-starship"
 version = "0.5.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c873f7e1c6bbab25eb4bfcd877b874ea47369fd2a87e01e0793017ba28c5f36f"
 dependencies = [
  "cosmwasm-std 2.1.3",
  "cw-orch-core",
@@ -1560,11 +1571,12 @@ dependencies = [
 [[package]]
 name = "cw-orch-traits"
 version = "0.24.0"
-source = "git+https://github.com/AbstractSDK/cw-orchestrator.git?branch=misha/orc-154-remove-chain-name-from-top-level-in-statejson#0874a1fac7b244888e05884b88889d95a5f8b316"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be7b10c170797abe29170d58756fd988b260430a4466a56647c8ab8dafa8fa13"
 dependencies = [
  "cw-orch-core",
- "prost 0.12.6",
- "prost-types 0.12.6",
+ "prost 0.13.1",
+ "prost-types 0.13.1",
 ]
 
 [[package]]
@@ -5181,37 +5193,6 @@ dependencies = [
 
 [[package]]
 name = "tendermint"
-version = "0.37.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "954496fbc9716eb4446cdd6d00c071a3e2f22578d62aa03b40c7e5b4fda3ed42"
-dependencies = [
- "bytes",
- "digest 0.10.7",
- "ed25519",
- "ed25519-consensus",
- "flex-error",
- "futures",
- "k256",
- "num-traits",
- "once_cell",
- "prost 0.12.6",
- "prost-types 0.12.6",
- "ripemd",
- "serde",
- "serde_bytes",
- "serde_json",
- "serde_repr",
- "sha2 0.10.8",
- "signature",
- "subtle",
- "subtle-encoding",
- "tendermint-proto 0.37.0",
- "time",
- "zeroize",
-]
-
-[[package]]
-name = "tendermint"
 version = "0.38.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "505d9d6ffeb83b1de47c307c6e0d2dff56c6256989299010ad03cd80a8491e97"
@@ -5242,17 +5223,33 @@ dependencies = [
 ]
 
 [[package]]
-name = "tendermint-config"
-version = "0.37.0"
+name = "tendermint"
+version = "0.39.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f84b11b57d20ee4492a1452faff85f5c520adc36ca9fe5e701066935255bb89f"
+checksum = "2f3afea7809ffaaf1e5d9c3c9997cb3a834df7e94fbfab2fad2bc4577f1cde41"
 dependencies = [
+ "bytes",
+ "digest 0.10.7",
+ "ed25519",
+ "ed25519-consensus",
  "flex-error",
+ "futures",
+ "k256",
+ "num-traits",
+ "once_cell",
+ "prost 0.13.1",
+ "ripemd",
  "serde",
+ "serde_bytes",
  "serde_json",
- "tendermint 0.37.0",
- "toml",
- "url",
+ "serde_repr",
+ "sha2 0.10.8",
+ "signature",
+ "subtle",
+ "subtle-encoding",
+ "tendermint-proto 0.39.1",
+ "time",
+ "zeroize",
 ]
 
 [[package]]
@@ -5265,6 +5262,20 @@ dependencies = [
  "serde",
  "serde_json",
  "tendermint 0.38.1",
+ "toml",
+ "url",
+]
+
+[[package]]
+name = "tendermint-config"
+version = "0.39.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8add7b85b0282e5901521f78fe441956ac1e2752452f4e1f2c0ce7e1f10d485"
+dependencies = [
+ "flex-error",
+ "serde",
+ "serde_json",
+ "tendermint 0.39.1",
  "toml",
  "url",
 ]
@@ -5350,22 +5361,6 @@ dependencies = [
 
 [[package]]
 name = "tendermint-proto"
-version = "0.37.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc87024548c7f3da479885201e3da20ef29e85a3b13d04606b380ac4c7120d87"
-dependencies = [
- "bytes",
- "flex-error",
- "prost 0.12.6",
- "prost-types 0.12.6",
- "serde",
- "serde_bytes",
- "subtle-encoding",
- "time",
-]
-
-[[package]]
-name = "tendermint-proto"
 version = "0.38.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ed14abe3b0502a3afe21ca74ca5cdd6c7e8d326d982c26f98a394445eb31d6e"
@@ -5381,36 +5376,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "tendermint-rpc"
-version = "0.37.0"
+name = "tendermint-proto"
+version = "0.39.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dfdc2281e271277fda184d96d874a6fe59f569b130b634289257baacfc95aa85"
+checksum = "bf3abf34ecf33125621519e9952688e7a59a98232d51538037ba21fbe526a802"
 dependencies = [
- "async-trait",
  "bytes",
  "flex-error",
- "futures",
- "getrandom",
- "peg",
- "pin-project",
- "rand",
- "reqwest 0.11.27",
- "semver",
+ "prost 0.13.1",
  "serde",
  "serde_bytes",
- "serde_json",
- "subtle",
  "subtle-encoding",
- "tendermint 0.37.0",
- "tendermint-config 0.37.0",
- "tendermint-proto 0.37.0",
- "thiserror",
  "time",
- "tokio",
- "tracing",
- "url",
- "uuid",
- "walkdir",
 ]
 
 [[package]]
@@ -5438,6 +5415,39 @@ dependencies = [
  "tendermint 0.38.1",
  "tendermint-config 0.38.1",
  "tendermint-proto 0.38.1",
+ "thiserror",
+ "time",
+ "tokio",
+ "tracing",
+ "url",
+ "uuid",
+ "walkdir",
+]
+
+[[package]]
+name = "tendermint-rpc"
+version = "0.39.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9693f42544bf3b41be3cbbfa418650c86e137fb8f5a57981659a84b677721ecf"
+dependencies = [
+ "async-trait",
+ "bytes",
+ "flex-error",
+ "futures",
+ "getrandom",
+ "peg",
+ "pin-project",
+ "rand",
+ "reqwest 0.11.27",
+ "semver",
+ "serde",
+ "serde_bytes",
+ "serde_json",
+ "subtle",
+ "subtle-encoding",
+ "tendermint 0.39.1",
+ "tendermint-config 0.39.1",
+ "tendermint-proto 0.39.1",
  "thiserror",
  "time",
  "tokio",
@@ -5741,37 +5751,6 @@ dependencies = [
  "pin-project",
  "prost 0.12.6",
  "tokio",
- "tokio-stream",
- "tower",
- "tower-layer",
- "tower-service",
- "tracing",
-]
-
-[[package]]
-name = "tonic"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76c4eb7a4e9ef9d4763600161f12f5070b92a578e1b634db88a6887844c91a13"
-dependencies = [
- "async-stream",
- "async-trait",
- "axum 0.6.20",
- "base64 0.21.7",
- "bytes",
- "h2 0.3.26",
- "http 0.2.12",
- "http-body 0.4.6",
- "hyper 0.14.30",
- "hyper-timeout 0.4.1",
- "percent-encoding",
- "pin-project",
- "prost 0.12.6",
- "rustls-native-certs 0.7.2",
- "rustls-pemfile 2.1.3",
- "rustls-pki-types",
- "tokio",
- "tokio-rustls 0.25.0",
  "tokio-stream",
  "tower",
  "tower-layer",

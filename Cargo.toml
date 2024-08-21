@@ -47,8 +47,8 @@ sha2 = "0.10.6"
 
 # dev-dependencies
 
-cw-orch = { version = "0.25.0", git = "https://github.com/AbstractSDK/cw-orchestrator.git", branch = "misha/orc-154-remove-chain-name-from-top-level-in-statejson" }
-cw-orch-interchain = { version = "0.4.0", git = "https://github.com/AbstractSDK/cw-orchestrator.git", branch = "misha/orc-154-remove-chain-name-from-top-level-in-statejson" }
+cw-orch = { version = "0.25.0" }
+cw-orch-interchain = { version = "0.4.0" }
 
 cw-multi-test = "2.0.0"
 anyhow = { version = "1.0.51" }
