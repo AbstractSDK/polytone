@@ -1,7 +1,7 @@
 use std::{collections::HashMap, fs::File};
 
 use cosmwasm_std::Addr;
-use cw_orch::{core::serde_json, prelude::*};
+use cw_orch::{core::serde_json, daemon::DeployedChains, prelude::*};
 
 use crate::{
     deploy::{POLYTONE_NOTE, POLYTONE_VOICE},

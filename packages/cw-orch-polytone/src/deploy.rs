@@ -4,6 +4,7 @@ use crate::utils::read_json;
 use crate::{interchain::PolytoneConnection, PolytoneNote, PolytoneProxy, PolytoneVoice};
 use cosmwasm_std::IbcOrder;
 use cw_orch::core::serde_json::Value;
+use cw_orch::daemon::DeployedChains;
 use cw_orch::prelude::*;
 use cw_orch_interchain::InterchainError;
 use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
@@ -55,7 +56,9 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
         polytone.set_contracts_state(None);
         Ok(polytone)
     }
+}
 
+impl<Chain: CwEnv> DeployedChains<Chain> for Polytone<Chain> {
     /// This allows loading only the code_ids from the state, because addresses are not relevant for this Structure
     fn set_contracts_state(&mut self, custom_state: Option<Value>) {
         let state;
@@ -139,7 +142,7 @@ impl<Chain: CwEnv> Polytone<Chain> {
                 block_max_gas: MAX_BLOCK_GAS.into(),
             },
             admin.map(Addr::unchecked).as_ref(),
-            None,
+            &[],
         )
     }
 
@@ -153,7 +156,7 @@ impl<Chain: CwEnv> Polytone<Chain> {
                 block_max_gas: MAX_BLOCK_GAS.into(),
             },
             admin.map(Addr::unchecked).as_ref(),
-            None,
+            &[],
         )
     }
 }
