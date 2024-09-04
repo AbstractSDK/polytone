@@ -11,7 +11,7 @@ description = "CW Orchestrator interfaces for Polytone"
 
 [dependencies]
 
-cw-orch = { workspace = true }
+cw-orch = { workspace = true, features = ["daemon"] }
 cosmwasm-std = { workspace = true }
 polytone-note = { workspace = true }
 polytone-proxy = { workspace = true }
@@ -20,4 +20,3 @@ cw-orch-interchain = { workspace = true }
 
 [dev-dependencies]
 anyhow.workspace = true
-cw-orch = { workspace = true, features = ["daemon"] }
