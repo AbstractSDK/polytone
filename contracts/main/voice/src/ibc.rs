@@ -84,7 +84,7 @@ pub fn ibc_packet_receive(
     let connection_id = CHANNEL_TO_CONNECTION
         .load(deps.storage, msg.packet.dest.channel_id.clone())
         .expect("handshake sets mapping");
-    Ok(IbcReceiveResponse::without_ack()
+    Ok(IbcReceiveResponse::new(b"")
         .add_attribute("method", "ibc_packet_receive")
         .add_attribute("connection_id", connection_id.as_str())
         .add_attribute("channel_id", msg.packet.dest.channel_id.as_str())
