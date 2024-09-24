@@ -1432,9 +1432,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain"
-version = "0.4.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a0245ab88afe7eb507091afb2e7621e42e9979b9a14a1898983c3156be20aa8b"
+checksum = "87edcc5ea0a708b8b2b1802810427a594a0017364d3111c785c78d3e98f40782"
 dependencies = [
  "cosmwasm-std 2.1.3",
  "cw-orch-interchain-core",
@@ -1449,9 +1449,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-core"
-version = "0.5.0"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "60fe610359d49f7063a63cba42e2893bbbca045b20a7ee2bc74f0132af45da34"
+checksum = "2002955657325e42f6e9336a3f8245c164529685aabb86cf10abc3f3fdacecbc"
 dependencies = [
  "base64 0.22.1",
  "cosmwasm-schema 2.1.3",
@@ -1472,9 +1472,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-daemon"
-version = "0.5.0"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d86766fbb5572ec8edad00844a4375eb1cd00dc3d1af31fbb57d5b99cad49ff5"
+checksum = "c415c36697a83470dff921dcc68a1a0687b0618057a4aab2a9dc3113f90daf5f"
 dependencies = [
  "async-recursion",
  "base64 0.22.1",
@@ -1501,9 +1501,9 @@ dependencies = [
 
 [[package]]
 name = "cw-orch-interchain-mock"
-version = "0.5.0"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0547c2ed6ba22914fa119bcb792641c67cf9b989314150d06f25742d601403e"
+checksum = "cbb991b1094127f414407938d42eb1d66962f941a66d6385ef5d24cb68a1fe60"
 dependencies = [
  "anyhow",
  "cosmrs",
