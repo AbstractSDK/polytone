@@ -6,8 +6,7 @@ use cosmwasm_std::IbcOrder;
 use cw_orch::core::serde_json::Value;
 use cw_orch::daemon::DeployedChains;
 use cw_orch::prelude::*;
-use cw_orch_interchain::InterchainError;
-use cw_orch_interchain::{IbcQueryHandler, InterchainEnv};
+use cw_orch_interchain::prelude::*;
 
 use crate::Polytone;
 
