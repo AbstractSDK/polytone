@@ -27,10 +27,9 @@ impl<Chain: CwEnv> Polytone<Chain> {
             return vec![];
         };
         let env_info = self.note.environment().env_info();
-        let contracts: HashMap<String, String> = cw_orch::core::serde_json::from_value(
-            state[env_info.chain_name][env_info.chain_id]["default"].clone(),
-        )
-        .unwrap();
+        let contracts: HashMap<String, String> =
+            cw_orch::core::serde_json::from_value(state[env_info.chain_id]["default"].clone())
+                .unwrap();
 
         // Sort notes and voices
         let mut notes = HashMap::new();
