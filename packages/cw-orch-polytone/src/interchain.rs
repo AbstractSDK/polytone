@@ -1,6 +1,6 @@
 use cosmwasm_std::{CosmosMsg, Uint64};
 use cw_orch::prelude::*;
-use cw_orch_interchain::{IbcQueryHandler, InterchainEnv, InterchainError};
+use cw_orch_interchain::core::{IbcQueryHandler, InterchainEnv, InterchainError};
 use polytone_note::msg::ExecuteMsgFns;
 
 use crate::{
