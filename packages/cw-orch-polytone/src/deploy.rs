@@ -85,8 +85,6 @@ impl<Chain: CwEnv> DeployedChains<Chain> for Polytone<Chain> {
             // We try to get the code_id for the contract
             if contract.code_id().is_err() {
                 let code_id = state
-                    .get(env_info.chain_name.clone())
-                    .unwrap_or(&Value::Null)
                     .get(env_info.chain_id.to_string())
                     .unwrap_or(&Value::Null)
                     .get("code_ids")
