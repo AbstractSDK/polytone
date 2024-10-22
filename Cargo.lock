@@ -1265,8 +1265,7 @@ dependencies = [
 [[package]]
 name = "cw-orch-core"
 version = "2.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "018f81a54a4b7b75f9b558642f48346a60cb04cb1f22e6ea0b21a6efe9f5fee8"
+source = "git+https://github.com/AbstractSDK/cw-orchestrator?branch=fix/add-load-state-from-statate-file#fd05d92a538203f6beecebf3560a25e8e5b45ce4"
 dependencies = [
  "abstract-cw-multi-test",
  "anyhow",

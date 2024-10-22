@@ -41,6 +41,7 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
             // Proxy doesn't have a specific address in deployments, so we don't load a specific suffixed proxy
             proxy: PolytoneProxy::new(POLYTONE_PROXY, dst_chain),
         };
+
         connection.set_contracts_addresses();
         connection
     }
@@ -63,6 +64,9 @@ impl<Chain: IbcQueryHandler> PolytoneConnection<Chain> {
         let all_contracts = self.get_contracts_mut();
 
         for contract in all_contracts {
+            if !contract.environment().can_load_state_from_state_file() {
+                continue;
+            }
             // We set the code_id and/or address of the contract in question if they are not present already
             let env_info = contract.environment().env_info();
             // We try to get the address for the contract
