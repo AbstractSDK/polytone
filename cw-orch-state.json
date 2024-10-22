@@ -172,6 +172,14 @@
       "polytone:voice | xion-testnet-1": "neutron1zl8l8lzyqr2uxrctwajcchgfps7x6aq0fdtczwkyzxp66aueyz2qu6f0q4"
     }
   },
+  "provider": {
+    "code_ids": {
+      "polytone:note": 42,
+      "polytone:proxy": 44,
+      "polytone:voice": 43
+    },
+    "default": {}
+  },
   "stargaze-1": {
     "code_ids": {
       "polytone:note": 95,
