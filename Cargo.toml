@@ -52,7 +52,3 @@ cw-orch-interchain = { version = "0.7.0" }
 
 cw-multi-test = "2.0.0"
 anyhow = { version = "1.0.51" }
-
-
-[patch.crates-io]
-cw-orch-core = { git = "https://github.com/AbstractSDK/cw-orchestrator", branch = "fix/add-load-state-from-statate-file" }
