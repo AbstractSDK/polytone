@@ -54,7 +54,6 @@ impl<Chain: CwEnv> Deploy<Chain> for Polytone<Chain> {
         let mut polytone = Self::new(chain.clone());
         // We register all the code_id default state
         if chain.can_load_state_from_state_file() {
-            println!("Loading from state file");
             polytone.set_contracts_state(None);
         }
 
@@ -204,7 +203,6 @@ impl<Chain: CwEnv + IbcQueryHandler> Polytone<Chain> {
             self.note.environment().clone(),
             dst.voice.environment().clone(),
         );
-
         if polytone_connection.note.address().is_ok() && polytone_connection.voice.address().is_ok()
         {
             return Ok(polytone_connection);
